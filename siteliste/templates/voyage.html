@@ -1,0 +1,102 @@
+
+ <!--include la  base, bootstrap -->
+ {% extends "base.html" %}
+
+ {% block page_content %}
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<style>
+
+</style>
+
+
+
+ <body style="background-color:#230c5a;" class="d-flex flex-column min-vh-100">
+    <nav class="navbar  rounded" style="background-color: #633ccd;">
+        <div class="container-fluid rounded" >
+            <img src="{{ MEDIA_URL }}petit.jpg" height="75" class="rounded">
+            <a class="navbar-brand" style="color: white;" href="{% url 'Acceuil' %}">
+            Acceuil
+            </a>
+            <li class="nav item">
+                <a class="nav-link active" style="color: white;" href="{% url 'membres' %}"> Membres</a> 
+            </li>
+             <li class="nav item">
+                <a class="nav-link active" style="color: white;" href="{% url 'defis' %}">Défis</a>
+             </li>
+             <li class="nav item">
+                <a class="nav-link active " style="color: white;" href="{% url 'video' %}">Vidéo</a>
+             </li>
+             <li class="nav item">
+                <a class="nav-link active" style="color: white;" href="{% url 'voyage' %}">Voyage</a>
+             </li>
+             <li class="nav item">
+                <a class="nav-link active" style="color: white;" href="{% url 'sponsors' %}"> Sponsors</a>
+             </li>
+        </div>
+        
+    
+    </nav>
+
+  
+
+
+
+
+    <footer class="py-2  fixed-bottom mt-auto" style="background-color: #633ccd;">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm">
+                    <br>
+                    
+                    <a href="#" class="fa fa-facebook" style="color: white;"> </a>
+                    <a style="color: white;">Facebook</a>
+
+                    <br>
+                    <a href="#" class="fa fa-instagram" style="color: white;"> </a>
+                    <a style="color: white;">Instagram</a>
+
+                    <br>
+                    <a href="#" class="fa fa-youtube" style="color: white;"> </a>
+                    <a style="color: white;">Youtube</a>
+
+                    <br>
+                    <a href="#" class="fa fa-snapchat-ghost" style="color: white;"> </a>
+                    <a style="color: white;">Snapchat</a>
+                    <br>
+                    <a href="#" class="fa fa-telegram" style="color: white;"> </a>
+                    <a style="color: white;">Telegram</a>
+                </div>
+                <div class="col-sm">
+                    <img src="{{ MEDIA_URL }}petit.jpg" height="" class="rounded">
+                </div>
+                <div class="col-sm">
+                  <br>
+                  <a style="color: white;">
+                    Liste Hydra © 2021-2022
+                  </a>
+                  <br>
+                  
+                  <br>
+                  <a style="color: white;">
+                   Contact : listehydra@gmail.com
+                  </a>
+                 
+                </div>
+              </div>
+        
+        </div>
+        </footer>
+
+
+
+</body>
+
+
+ {% endblock %}
+
+ 
