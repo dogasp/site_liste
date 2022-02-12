@@ -4,13 +4,9 @@
  {% extends "base.html" %}
 
  {% block page_content %}
-<script>
+<style>
 
-
-document.getElementById("test").style.color = "blue";
-
-</script>
-
+</style>
 
 <body style="background-color:#230c5a">
     <nav class="navbar  rounded" style="background-color: #633ccd;">
@@ -46,25 +42,25 @@ document.getElementById("test").style.color = "blue";
 
 
 
-    <img src="{{ MEDIA_URL }}grand.PNG" class="rounded mx-auto d-block" style="size: 500px;">
+    <img src="{{ MEDIA_URL }}grand.PNG" class="img-responsive rounded mx-auto d-block" width="500" height="500">
 
 <div style="text-align: center; position: relative;">
     <div class="row">
         <div class="col">
-            <button type="button" class="btn btn-primary btn-lg " style="background-color: #230c5a;">Large button</button>
+            <button type="button" class="btn btn-primary btn-lg " style="background-color: #230c5a;" href="{% url 'membres' %}">Membres</button>
         </div>
         <div class="col">
-            <button type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;">Large button</button>
+            <button type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'defis' %}">Défis</button>
         </div>
 
     </div>
     <br>
     <div class="row">
         <div class="col">
-            <button type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;">Large button</button>
+            <button type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'video' %}">Vidéo</button>
         </div>
         <div class="col">
-            <button type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;">Large button</button>
+            <button type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'voyage' %}">Voyage</button>
         </div>
 
     </div>
