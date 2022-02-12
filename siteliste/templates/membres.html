@@ -138,13 +138,13 @@ ul.colors li:nth-child(5) {
 <body style="background-color:#230c5a;" class="d-flex flex-column min-vh-100">
     <nav class="navbar  rounded" style="background-color: #633ccd;">
         <div class="container-fluid rounded" >
-            <img src="{{ MEDIA_URL }}petit.jpg" height="75" class="rounded">
-            <a class="navbar-brand" style="color: white;" href="{% url 'Acceuil' %}">
-            Acceuil
-            </a>
+            <img src="{{ MEDIA_URL }}petit.jpg" height="100" class="rounded">
             <li class="nav item">
-                <a class="nav-link active" style="color: white;" href="{% url 'membres' %}"> Membres</a> 
+                <a class="nav-link active" style="color: white;" href="{% url 'Acceuil' %}"> Accueil</a> 
             </li>
+            <a class="navbar-brand" style="color: white;" href="{% url 'membres' %}">
+            Membres
+            </a>
              <li class="nav item">
                 <a class="nav-link active" style="color: white;" href="{% url 'defis' %}">Défis</a>
              </li>
