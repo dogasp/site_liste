@@ -16,10 +16,10 @@ config={
   "databaseURL" : "https://site-liste-hydra-e6a25-default-rtdb.europe-west1.firebasedatabase.app/"
 }
 
+menuList = [("/", "Accueil"), ("/Membres/", "Membres"), ("/Defis/", "Défis"), ("/Video/", "Vidéo"), ("/Voyage/", "Voyage"), ("/Sponsors/", "Sponsors"), ("/Event/", "Événement")]
 
-    
 
-def defis(request):
+def Defis(request):
     
     firebase=pyrebase.initialize_app(config)
     authe = firebase.auth()
@@ -33,8 +33,6 @@ def defis(request):
         if defi.val()["titre"] != "test":
             defilist.append(defi.val())
    
-   
-
     if request.method == 'POST':
         if request.POST.get("submit"):
             print("submit")
@@ -51,27 +49,28 @@ def defis(request):
                
                 data={"titre":titre, "desc":desc, "date":str(datetime.datetime.now())}
                 n='defi{}'.format(len(database.child('defis').get().val()))
-                database.child("defis").child(n).set(data)  
+                database.child("Defis").child(n).set(data)  
  
-        return HttpResponseRedirect("/defis")
+        return HttpResponseRedirect("/Defis")
 
    
-    return render(request, 'defis.html', {'form': form ,'defis':defilist})
-def Acceuil(request):
-    
-    return render(request,'Acceuil.html',{})
+    return render(request, 'Defis.html', {'form': form ,'defis':defilist, 'menuList': menuList})
 
+def Accueil(request):
+    return render(request,'Accueil.html',{'menuList': menuList})
 
-def membres(request):
-    return render(request,'membres.html',{})
+def Membres(request):
+    return render(request,'Membres.html',{'menuList': menuList})
 
-def sponsors(request):
-    return render(request,'sponsors.html',{})
+def Sponsors(request):
+    return render(request,'Sponsors.html',{'menuList': menuList})
 
-def video(request):
-    return render(request,'video.html',{})
+def Video(request):
+    return render(request,'Video.html',{'menuList': menuList})
 
-def voyage(request):
-    return render(request,'voyage.html',{})
+def Voyage(request):
+    return render(request,'Voyage.html',{'menuList': menuList})
 
+def Event(request):
+    return render(request,'Event.html',{'menuList': menuList})
 
