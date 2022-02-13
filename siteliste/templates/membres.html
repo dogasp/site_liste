@@ -10,6 +10,7 @@
 
 .product {
     text-align: center;
+    
     transform: translate(-0%, -0%);
     width: 250px;
     height: 350px;
@@ -124,12 +125,6 @@ ul.colors li:nth-child(5) {
     font-size: 13px;
     border-radius: 2px
 }
-
-.col{
-
-    margin-bottom: 10%;
-    margin-right: 5%;
-}
   
 
  </style>
@@ -138,13 +133,13 @@ ul.colors li:nth-child(5) {
 <body style="background-color:#230c5a;" class="d-flex flex-column min-vh-100">
     <nav class="navbar  rounded" style="background-color: #633ccd;">
         <div class="container-fluid rounded" >
-            <img src="{{ MEDIA_URL }}petit.jpg" height="100" class="rounded">
-            <li class="nav item">
-                <a class="nav-link active" style="color: white;" href="{% url 'Acceuil' %}"> Accueil</a> 
-            </li>
-            <a class="navbar-brand" style="color: white;" href="{% url 'membres' %}">
-            Membres
+            <img src="{{ MEDIA_URL }}petit.jpg" height="75" class="rounded">
+            <a class="navbar-brand" style="color: white;" href="{% url 'Acceuil' %}">
+            Acceuil
             </a>
+            <li class="nav item">
+                <a class="nav-link active" style="color: white;" href="{% url 'membres' %}"> Membres</a> 
+            </li>
              <li class="nav item">
                 <a class="nav-link active" style="color: white;" href="{% url 'defis' %}">Défis</a>
              </li>
@@ -209,10 +204,10 @@ ul.colors li:nth-child(5) {
                 </div>
             </div>
             
-        <!--</div>
+        </div>
         <br><br>
 
-        <div class="row content-center" style="text-align: center;"> -->
+        <div class="row justify-content-center" style="text-align: center;">
             <div class="col" style="text-align: center;">
                 <div class="product " style="text-align: center;">
                     <div class="imgbox "> <img src="{{ MEDIA_URL }}test.jpg"> </div>

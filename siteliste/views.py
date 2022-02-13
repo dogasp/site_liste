@@ -30,8 +30,9 @@ def defis(request):
     all_defis = database.child("defis").get()
     defilist=[]
     for defi in all_defis:
-        if defi.val()["titre"] != "test":
-            defilist.append(defi.val())
+        if defi.key() != 'count' :
+            if defi.val()["titre"] != "test":
+                defilist.append(defi.val())
    
    
 
@@ -49,10 +50,12 @@ def defis(request):
                 
                 
                
-                data={"titre":titre, "desc":desc, "date":str(datetime.datetime.now())}
-                n='defi{}'.format(len(database.child('defis').get().val()))
+                data={"titre":titre, "desc":desc, "date":str(datetime.datetime.now()), "donenu":-1, "lienvid":"lien", "donneur":"donneur","count":len(database.child('defis').get().val())}
+                n='defi{}'.format(database.child("count").get().val())
                 database.child("defis").child(n).set(data)  
- 
+                
+                vaniquertamere = int(database.child("count").get().val())
+                database.child("count").set(vaniquertamere+1)
         return HttpResponseRedirect("/defis")
 
    

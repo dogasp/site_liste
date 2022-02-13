@@ -82,3 +82,42 @@
             
             </div>
             </footer>
+
+
+
+            config={
+                "apiKey": "AIzaSyAI0KK-ff21JLuLIDhVbBcwfDh63HfoDCY",
+                "authDomain": "site-liste-hydra-e6a25.firebaseapp.com",
+                "projectId": "site-liste-hydra-e6a25",
+                "storageBucket": "site-liste-hydra-e6a25.appspot.com",
+                "messagingSenderId": "809157089116",
+                "appId": "1:809157089116:web:a45f65cdcb6f2aff409399",
+                "measurementId": "G-VQ33YWV56V",
+                "databaseURL" : "https://site-liste-hydra-e6a25-default-rtdb.europe-west1.firebasedatabase.app/"
+              }
+              
+              
+                  
+              
+              def getdbAF():
+                  firebase=pyrebase.initialize_app(config)
+                  authe = firebase.auth()
+                  database=firebase.database()
+                  all_defis = database.child("defis").get()
+                  defilist=[]
+                  for defi in all_defis:
+                      if defi.val()["titre"] != "test":
+                          defilist.append(defi.val())
+                  return all_defis
+              
+              def getdbDone():
+                  firebase=pyrebase.initialize_app(config)
+                  authe = firebase.auth()
+                  database=firebase.database()
+                  all_defis = database.child("done").get()
+                  defilist=[]
+                  for defi in all_defis:
+                      if defi.val()["titre"] != "test":
+                          defilist.append(defi.val())
+                  return all_defis
+              
