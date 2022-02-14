@@ -8,45 +8,42 @@
 
 </style>
 
-<body>
 <br>
 <br>
 
+{% csrf_token %}
+<form method="post">
     {% csrf_token %}
-    <form method="post">
-        {% csrf_token %}
-        <label for="titre">Titre </label>
-        <input id="titre" type="text" name="titre">
-        
-        <label for="desc">Desc </label>
-        <input id="desc" type="text" name="desc">
-        <input type="submit" value="OK" name="submit">
-    </form>
+    <label for="titre">Titre </label>
+    <input id="titre" type="text" name="titre">
+    
+    <label for="desc">Desc </label>
+    <input id="desc" type="text" name="desc">
+    <input type="submit" value="OK" name="submit">
+</form>
 
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Titre</th>
-            <th scope="col">Description</th>
-            <th scope="col">Date</th>
-          </tr>
-        </thead>
-        {% for defi in defis %}
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>{{ defi }}</td>
-            <td></td>
-            <td></td>
-          </tr>
-          {% endfor %}
-        </tbody>
-        
-      </table>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Titre</th>
+        <th scope="col">Description</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    {% for defi in defis %}
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>{{ defi }}</td>
+        <td></td>
+        <td></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    
+  </table>
       
-
-</body>
 
 
 

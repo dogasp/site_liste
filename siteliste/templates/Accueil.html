@@ -1,6 +1,4 @@
-
-
- <!--include la  base, bootstrap -->
+<!--include la  base, bootstrap -->
  {% extends "base.html" %}
 
  {% block page_content %}
@@ -8,40 +6,20 @@
 
 </style>
 
-<body style="background-color:#230c5a">
+<div style="height: 80%;">
 
-    <img src="{{ MEDIA_URL }}grand.PNG" class="img-responsive rounded mx-auto d-block" width="500" height="500">
+    <img src="{{ MEDIA_URL }}grand.PNG" class="img-responsive rounded mx-auto d-block" height="50%">
 
     <div style="text-align: center; position: relative;">
-        <div class="row">
-            <div class="col">
-                <a type="button" class="btn btn-primary btn-lg " style="background-color: #230c5a;" href="{% url 'Membres' %}">Membres</a>
-            </div>
-            <div class="col">
-                <a type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'Defis' %}">Défis</a>
-            </div>
-
-        </div>
-        <br>
-        <div class="row">
-            <div class="col">
-                <a type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'Video' %}">Vidéo</a>
-            </div>
-            <div class="col">
-                <a type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'Voyage' %}">Voyage</a>
-            </div>
-
-        </div>
-        <br>
+        <a type="button" class="btn btn-primary btn-lg " style="background-color: #230c5a;" href="{% url 'Membres' %}">Membres</a>
+        <a type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'Defis' %}">Défis</a>
+        <a type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'Video' %}">Vidéo</a>
+        <a type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'Voyage' %}">Voyage</a>
+        
         <button type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;">Large button</button>
     </div>
 
-
-
-
-</body>
-
-
+</div>
 
  {% endblock %}
 

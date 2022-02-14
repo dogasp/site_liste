@@ -16,8 +16,14 @@ config={
   "databaseURL" : "https://site-liste-hydra-e6a25-default-rtdb.europe-west1.firebasedatabase.app/"
 }
 
-menuList = [("/", "Accueil"), ("/Membres/", "Membres"), ("/Defis/", "Défis"), ("/Video/", "Vidéo"), ("/Voyage/", "Voyage"), ("/Sponsors/", "Sponsors"), ("/Event/", "Événement")]
+menuList = [("/", "Accueil"), ("/Membres/", "Membres"), ("/Defis/", "Défis"), ("/Video/", "Vidéo"), ("/Voyage/", "Voyages"), ("/Sponsors/", "Sponsors"), ("/Event/", "Événement")]
 
+sponsorList = [("Lyf Pay", "sponso/lyf.png", "Lyf pay est trop bien"), ("Ornikar", "sponso/ornikar.jpg", "Ornikar est trop cool"), ("Lyf Pay", "sponso/lyf.png", "Lyf pay est trop bien"), 
+("Lyf Pay", "sponso/lyf.png", "Lyf pay est trop bien"), ("Lyf Pay", "sponso/lyf.png", "Lyf pay est trop bien"), ("Lyf Pay", "sponso/lyf.png", "Lyf pay est trop bien"), 
+("Lyf Pay", "sponso/lyf.png", "Lyf pay est trop bien"), ("Lyf Pay", "sponso/lyf.png", "Lyf pay est trop bien"), ("Lyf Pay", "sponso/lyf.png", "Lyf pay est trop bien"), 
+("Lyf Pay", "sponso/lyf.png", "Lyf pay est trop bien")]
+
+voyageList = [("wei", "Week-End d'Intégration", "Inconnu", "Le wei sera juste génial"), ("ski", "Semaine de Ski", "Serre chevalier Valée", "Une des meilleures stations de France"), ("europe", "Voyage en Europe", "Naples", "Sur les traces de la mafia italienne")]
 
 def Defis(request):
     
@@ -63,13 +69,13 @@ def Membres(request):
     return render(request,'Membres.html',{'menuList': menuList})
 
 def Sponsors(request):
-    return render(request,'Sponsors.html',{'menuList': menuList})
+    return render(request,'Sponsors.html',{'menuList': menuList, 'sponsorList': sponsorList})
 
 def Video(request):
     return render(request,'Video.html',{'menuList': menuList})
 
 def Voyage(request):
-    return render(request,'Voyage.html',{'menuList': menuList})
+    return render(request,'Voyage.html',{'menuList': menuList, 'voyageList':voyageList})
 
 def Event(request):
     return render(request,'Event.html',{'menuList': menuList})
