@@ -23,7 +23,9 @@ sponsorList = [("Lyf Pay", "sponso/lyf.png", "Lyf pay est trop bien"), ("Ornikar
 ("Lyf Pay", "sponso/lyf.png", "Lyf pay est trop bien"), ("Lyf Pay", "sponso/lyf.png", "Lyf pay est trop bien"), ("Lyf Pay", "sponso/lyf.png", "Lyf pay est trop bien"), 
 ("Lyf Pay", "sponso/lyf.png", "Lyf pay est trop bien")]
 
-voyageList = [("wei", "Week-End d'Intégration", "Inconnu", "Le wei sera juste génial"), ("ski", "Semaine de Ski", "Serre chevalier Valée", "Une des meilleures stations de France"), ("europe", "Voyage en Europe", "Naples", "Sur les traces de la mafia italienne")]
+voyageList = [("wei", "Week-End d'Intégration", "Inconnu", "Ce week-end iconique permet de faire connaissance et d'intégrer les personnes venant de prépa, mais aussi pour finir sur une bonne note ton été 2K22, au programme : Soirée, piscine, Jeux, bonne ambiance… Tous les éléments sont réunis pour te faire kiffer."), 
+("ski", "Semaine de Ski", "Serre chevalier Valée", "En plein milieu des Hautes-Alpes, Nous nous engageons à t'offrir le meilleur voyage de ski qui existe. 250 km de pistes avec une vue sur le massif des Écrins, une semaine avec une prestation All Inclusive, t'as juste à faire ton sac et n'oublie pas ton bonnet !!"), 
+("europe", "Voyage en Europe", "Naples", "Hydra vous donne rdv en Italie pour faire trembler le volcan caché sous cette charmante ville, Soirée privée, Boîtes de nuit, restaurants italien, Apéro, soleil, Activités. Prépare toi car tu vas peut-être oublier de dormir.")]
 
 def Defis(request):
     
