@@ -4,21 +4,45 @@
  {% block page_content %}
 <style>
 
+@keyframes animation {
+  from {
+    background-color: rgba(204, 29, 160, 0.9);
+  }
+
+  to {
+    background-color: rgba(102, 29, 96, 0.9);
+  }
+}
+
+.Cache{
+    animation-duration: 2s;
+    animation-name: animation;
+    background-color: rgba(0,0,0, .6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.Interface{
+    animation-delay: 5s;
+    animation-duration: 1s;
+    animation: fade;
+}
+
 </style>
 
-<div style="height: 80%;">
-
-    <img src="{{ MEDIA_URL }}grand.PNG" class="img-responsive rounded mx-auto d-block" height="50%">
-
-    <div style="text-align: center; position: relative;">
-        <a type="button" class="btn btn-primary btn-lg " style="background-color: #230c5a;" href="{% url 'Membres' %}">Membres</a>
-        <a type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'Defis' %}">Défis</a>
-        <a type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'Video' %}">Vidéo</a>
-        <a type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'Voyage' %}">Voyage</a>
-        
-        <button type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;">Large button</button>
-    </div>
-
+<div style="text-align: center; position: relative;">
+    <a type="button" class="btn btn-primary btn-lg " style="background-color: #230c5a;" href="{% url 'Membres' %}">Membres</a>
+    <a type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'Defis' %}">Défis</a>
+    <a type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'Video' %}">Vidéo</a>
+    <a type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'Voyage' %}">Voyage</a>
+    
+    <button type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;">Large button</button>
+</div>
+<div class="Cache Interface">
+    <img src="{{ MEDIA_URL }}HydraAnimationLogo.gif" class="img-responsive rounded mx-auto d-block" height="50%">
 </div>
 
  {% endblock %}
