@@ -1,9 +1,11 @@
 from django import forms
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+import numpy
 import pyrebase
 from .forms import NameForm
 import datetime
+from numpy import array
 
 config={
   "apiKey": "AIzaSyAI0KK-ff21JLuLIDhVbBcwfDh63HfoDCY",
@@ -28,29 +30,71 @@ def defis(request):
      #va chercher les données de la Db et les affiche dans un tableau dans defis.html
     
     all_defis = database.child("defis").get()
-    defilist=[]
+    c=0
+    idlist=[]
+    final=[]
+    titrelist=[]
+    desclist=[]
+    datelist=[]
+    donneurlist=[]
     for defi in all_defis:
-        if defi.key() != 'count' :
+        if defi.val()["count"] != 0:
             if defi.val()["titre"] != "test":
-                defilist.append(defi.val())
+                idlist.append(defi.val()["count"])
+                desclist.append(defi.val()["desc"])
+                titrelist.append(defi.val()["titre"])
+                #donneurlist.append(defi.val()["donneur"])
+                datelist.append(defi.val()["date"])
    
-   
+    for i in idlist:
+        dictdefi={'id':idlist[c],'titre':titrelist[c],'desc':desclist[c],'date':datelist[c]}
+        c+=1
+        final.append(dictdefi)
+    
 
+
+    #Done:
+    all_done = database.child("done").get()
+    
+    c=0
+    iddone=[]
+    donelist=[]
+    titredone=[]
+    descdone=[]
+    datedone=[]
+    donneurdone=[]
+    for defi in all_done:
+       
+        if defi.val()["titre"] != "test" and defi.val()["donecount"] != 0:
+            iddone.append(defi.val()["donecount"])
+            descdone.append(defi.val()["desc"])
+            titredone.append(defi.val()["titre"])
+                #donneurlist.append(defi.val()["donneur"])
+            datedone.append(defi.val()["datedone"])
+    
+    for i in iddone:
+        dictdone={'id':iddone[c],'titre':titredone[c],'desc':descdone[c],'date':datedone[c]}
+        c+=1
+        donelist.append(dictdone)
+    
+    
+    
     if request.method == 'POST':
         if request.POST.get("submit"):
-            print("submit")
+            
             
             form = NameForm(request.POST)
-   
+            
             if form.is_valid():
                 titre=form.cleaned_data.get('titre')
-               
-
+                
                 desc=form.cleaned_data.get('desc')
                 
+                donneur = form.cleaned_data.get('donneur')
                 
-               
-                data={"titre":titre, "desc":desc, "date":str(datetime.datetime.now()), "donenu":-1, "lienvid":"lien", "donneur":"donneur","count":len(database.child('defis').get().val())}
+                print(donneur)
+
+                data={"titre":titre, "desc":desc, "date":str(datetime.datetime.now()), "donenu":-1, "lienvid":"lien", "donneur":"donneur","count":database.child("count").get().val()}
                 n='defi{}'.format(database.child("count").get().val())
                 database.child("defis").child(n).set(data)  
                 
@@ -59,7 +103,7 @@ def defis(request):
         return HttpResponseRedirect("/defis")
 
    
-    return render(request, 'defis.html', {'form': form ,'defis':defilist})
+    return render(request, 'defis.html', {'form': form ,'final':final,'donelist':donelist})
 def Acceuil(request):
     
     return render(request,'Acceuil.html',{})
@@ -72,7 +116,13 @@ def sponsors(request):
     return render(request,'sponsors.html',{})
 
 def video(request):
-    return render(request,'video.html',{})
+    afin=[
+        { "id":1, "name": "Python", "author":"idk", "copies": 1},
+{ "id":2, "name": "Java", "author":"idk2", "copies": 3}
+
+    ]
+    print
+    return render(request,'video.html',{"afin":afin})
 
 def voyage(request):
     return render(request,'voyage.html',{})

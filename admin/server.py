@@ -1,5 +1,4 @@
-
-from flask import Flask, render_template, request  #importing flask elements to make everything work
+from flask import Flask, render_template, request, redirect,url_for  #importing flask elements to make everything work
 app = Flask(__name__)
 
 import pyrebase
@@ -79,20 +78,23 @@ def my_link():
   database=firebase.database()
 
   #remove defi :
-
-  database.child("defis").child("defi{}".format(dataformat[0])).remove()
+  nom="defi{}".format(dataformat[0].replace(" ",""))
+  print("nom={}".format(nom))
+  database.child("defis").child(nom).remove()
   
   #add defi à done:
   done={"titre":dataformat[6], "desc":dataformat[2], "date":dataformat[1], "donenu":len(database.child('done').get().val())-1, "lienvid":"lien", "donneur":"donneur"}
-  n=database.child("donecount").get().val()+1
+  n=database.child("donecount").get().val()
   database.child("done").child("done{}".format(n)).set(done)
   
   #incrément donecount
-  t=database.child("donecount").get().val()+1
+  t=database.child("donecount").get().val()
   
   database.child("donecount").set(t+1)
-  
-  return request.form.get("data")
+  #redirect vers admin.html
+  redirect('/')
+
+  return redirect('/')
   
 if __name__ == '__main__':
   app.run(debug=True)

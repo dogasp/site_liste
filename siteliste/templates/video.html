@@ -4,7 +4,7 @@
 
  {% block page_content %}
  
-<body style="background-color: #230c5a;">
+<body style="background-color: white;">
     <nav class="navbar  rounded" style="background-color: #633ccd;">
         <div class="container-fluid rounded" >
             <img src="{{ MEDIA_URL }}petit.jpg" height="75" class="rounded">
@@ -32,20 +32,28 @@
     </nav>
 
 
-
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Description</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {%for a in afin%}
+            <th scope="row">{{ a.id }}</th>
+            {% endfor %}
+            
+          </tr>
+         
+        </tbody>
+        
+      </table>
 
     
-<br>
-<h3 style="text-align: center; color: white;">Notre vidéo de campagne</h3>
-<br>
-<div style="text-align: center;">
-    <iframe width="780" height="515" src="https://www.youtube.com/embed/QK8mJJJvaes">
-    </iframe>
-</div>
-    
-
-<br>
-
 
 
 

@@ -18,7 +18,7 @@
         <th scope="col">#</th>
         <th scope="col">Titre</th>
         <th scope="col">Description</th>
-        <th scope="col">Date</th>
+        <th scope="col">Lien</th>
         <th scope="col">Done</th>
       </tr>
     </thead>
@@ -31,6 +31,7 @@
         <td>test</td>
         <td><form action="/done" method="post">
         <input name="data" type="hidden" value="{{ a.val( )}}">
+        <input name="lien" type="text" value="">
         <input type="submit" value="Click Me" >
     </form>
         </td>
