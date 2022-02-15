@@ -74,11 +74,13 @@ def Defis(request):
     donelist=[]
     titredone=[]
     descdone=[]
+    listliens=[]
     datedone=[]
     donneurdone=[]
     for defi in all_done:
        
         if defi.val()["titre"] != "AFCSGHDFHJW":
+            listliens.append(defi.val()['lienvid'])
             iddone.append(defi.val()['donecount'])
             descdone.append(defi.val()["desc"])
             titredone.append(defi.val()["titre"])
@@ -86,7 +88,7 @@ def Defis(request):
             datedone.append(defi.val()["datedone"])
     
     for c in range(len(iddone)):
-        dictdone={'id':iddone[c],'titre':titredone[c],'desc':descdone[c],'date':datedone[c],'donneur':donneurlist[c]}
+        dictdone={'id':iddone[c],'titre':titredone[c],'desc':descdone[c],'date':datedone[c],'donneur':donneurlist[c],'lien':listliens[c]}
         donelist.append(dictdone)
     
     if request.method == 'POST':

@@ -79,12 +79,12 @@ def my_link():
 
   #remove defi :
   nom="defi{}".format(dataformat[0].replace(" ",""))
-  print("nom={}".format(nom))
+  print(dataformat)
   database.child("defis").child(nom).remove()
   
   #add defi à done:
   n=database.child("donecount").get().val()
-  done={"titre":dataformat[6], "desc":dataformat[2], "date":dataformat[1], "donenu":len(database.child('done').get().val())-1, "lienvid":lien, "donneur":"donneur","datedone":str(datetime.datetime.now()), "donecount":n}
+  done={"titre":dataformat[6], "desc":dataformat[2], "date":dataformat[1], "donenu":len(database.child('done').get().val())-1, "lienvid":lien, "donneur":dataformat[4],"datedone":str(datetime.datetime.now()), "donecount":n}
   
   database.child("done").child("done{}".format(n)).set(done)
   
