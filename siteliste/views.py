@@ -129,13 +129,7 @@ def Sponsors(request):
     return render(request,'Sponsors.html',{'menuList': menuList, 'sponsorList': sponsorList})
 
 def Video(request):
-    afin=[
-        { "id":1, "name": "Python", "author":"idk", "copies": 1},
-{ "id":2, "name": "Java", "author":"idk2", "copies": 3}
-
-    ]
-    print
-    return render(request,'Video.html',{"afin":afin}, {'menuList': menuList})
+    return render(request,'Video.html', {'menuList': menuList})
 
 def Voyage(request):
     return render(request,'Voyage.html',{'menuList': menuList, 'voyageList':voyageList})
