@@ -7,34 +7,101 @@
  
 <style>
 
-.Event{
-    padding: 1%;
-    margin-left: 8%;
-    padding-bottom: 8%;
+h1 {
+    text-align: center;
+    white-space: nowrap;
+    color: #563675;
 }
 
+.element:hover {
+    -webkit-filter: grayscale(1) invert(1);
+    filter: grayscale(1) invert(1);
+}
+.popup {
+    position: fixed;
+    padding: 10px;
+    max-width: 500px;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: rgba(255,255,255,.9);
+    visibility: hidden;
+    opacity: 0;
+    /* "delay" the visibility transition */
+    -webkit-transition: opacity .5s, visibility 0s linear .5s;
+    transition: opacity .5s, visibility 0s linear .5s;
+    z-index: 1;
+}
+.popup:target {
+    visibility: visible;
+    opacity: 1;
+    /* cancel visibility transition delay */
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+.popup-close {
+    position: absolute;
+    padding: 10px;
+    max-width: 500px;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: rgba(255,255,255,.9);
+}
+.popup .close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    padding: 5px;
+    color: #111;
+    transition: color .3s;
+    font-size: 2em;
+    line-height: .6em;
+    font-weight: bold;
+}
+.close-popup {
+    background: rgba(0,0,0,.6);
+    cursor: default;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+    /* "delay" the visibility transition */
+    -webkit-transition: opacity .5s, visibility 0s linear .5s;
+    transition: opacity .5s, visibility 0s linear .5s;
+}
+.popup:target + .close-popup{  
+    opacity: 1;
+    visibility: visible;
+    /* cancel visibility transition delay */
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+      
 </style>
 
+<div class="container-fluid d-flex flex-wrap justify-content-center" style="width: 100%; min-height: 80%; padding-left: 10%; padding-right: 10%; padding-top: 5%; padding-bottom: 5%;">
+    {% for eName, eDate, eDate, eSmall in eventList %}
+        <div style="height:20%; margin-right: 10%; padding-bottom: 1%; width: 300px; height: 300px; margin-top: 2%;">
 
+            <a href="#{{ eName }}" style="color:white; width: 300px; height: 300px" ><img class="element" src="{{ MEDIA_URL }}event/{{ eName }}.png" style="border-radius: 30px; width:100%;" ></a>
 
-<div class="Event">
-    <h1>Allô</h1>
-    <h5>Lundi 21 février 2022</h5>
-    <p>Les allô durent de 16h à minuit, on vous attendra à l'autre bout du fil pour vous apporter boissons, nourriture, et plein d'autres choses !</p>
-    <small>Des détails arriveront très vite</small>
-</div>
+            <div id="{{ eName }}" class="popup">
+                <a href="#" class="close">&times;</a>
+                <h1>{{ eName }}</h1>
+                <h5>{{ eDate }}</h5>
+                <p style="color:black;"> {{ eDescription }}</p>
+                <small>{{ eSmall }}</small>
+            </div>
 
-<div class="Event">
-    <h1>Petit déjeuner</h1>
-    <h5>Vendredi 25 février 2022</h5>
-    <p>RDV dans les couloirs de l'école pour manger un pain au chocolat (ou chocolatine), coissant ou boire un café, thé ... bref un petit-déj</p>
-</div>
-
-<div class="Event">
-    <h1>Journée de campagne</h1>
-    <h5>Mercredi 9 mars 2022</h5>
-    <p>À partir de 6h du matin jusqu'à 4 heures du matin, on vous divertira tout au long de la journée et on vous fera vibrer dans une soirée jusqu'au bout de la nuit</p>
-    <small>Le planing de la journée sera bientôt disponible</small>
+            <a href="#" class="close-popup"></a>
+        </div>
+    {% endfor %}
 </div>
 
  {% endblock %}

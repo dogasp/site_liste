@@ -13,7 +13,7 @@ h2 {
 p {
   color: black;
 }
-img:hover {
+.element:hover {
    -webkit-filter: grayscale(1) invert(1);
    filter: grayscale(1) invert(1);
 }
@@ -82,21 +82,22 @@ img:hover {
   -webkit-transition-delay: 0s;
   transition-delay: 0s;
 }
+
+
 </style>
 
 <h1 style="color: white; text-align: center; padding: 2%;">Nos sponsors et partenaires</h1>
-<!--4x3-->
 
-<div class="container-fluid d-flex flex-wrap justify-content-center" style="width: 100%;">
+<div class="container-fluid d-flex flex-wrap justify-content-center" style="width: 100%; height: 80%;">
     {% for sName, sImg, sDesc in sponsorList %}
-        <div style="height:20%; margin-right: 2%; padding-bottom: 2%;">
+        <div style="height:20%; margin-right: 2%; padding-bottom: 1%; width: 200px; height: 200px">
 
-            <a href="#{{ sName }}" height="200px" ><img src="{{ MEDIA_URL }}{{ sImg }}" height="200px" style="border-radius: 30px"></a>
+            <a href="#{{ sName }}" style="color:black; width: 200px; height: 200px" ><img class="element" src="{{ MEDIA_URL }}{{ sImg }}" style="border-radius: 30px; width:100%;" ></a>
 
             <div id="{{ sName }}" class="popup">
                 <a href="#" class="close">&times;</a>
                 <h2>{{ sName }}</h2>
-                <p>{{ sDesc }}</p>
+                <p style="color:black;">{{ sDesc }}</p>
             </div>
             <a href="#" class="close-popup"></a>
         </div>

@@ -5,19 +5,25 @@
 <style>
 
 @keyframes animation {
-  from {
-    background-color: rgba(204, 29, 160, 0.9);
+  0%{
+    background-color: #1d102add;
+    opacity: 1;
   }
+  94%{
+    background-color: #1d102add;
+    opacity: 1;
 
-  to {
-    background-color: rgba(102, 29, 96, 0.9);
+  }
+  100%{
+    background-color: #230c5a00;
+    opacity: 0;
   }
 }
 
 .Cache{
-    animation-duration: 2s;
+    animation-duration: 6s;
     animation-name: animation;
-    background-color: rgba(0,0,0, .6);
+    background-color: #5d3882;
     position: absolute;
     top: 0;
     left: 0;
@@ -25,24 +31,38 @@
     height: 100%;
 }
 
-.Interface{
-    animation-delay: 5s;
-    animation-duration: 1s;
-    animation: fade;
-}
-
 </style>
 
+<script>
+  function suppr(){
+    console.log("test");
+    var elt = document.getElementById("cache");
+    elt.remove();
+  }
+  document.addEventListener("DOMContentLoaded", setTimeout(suppr, 6000));
+</script>
+
 <div style="text-align: center; position: relative;">
-    <a type="button" class="btn btn-primary btn-lg " style="background-color: #230c5a;" href="{% url 'Membres' %}">Membres</a>
+  
+    <!-- <a type="button" class="btn btn-primary btn-lg " style="background-color: #230c5a;" href="{% url 'Membres' %}">Membres</a>
     <a type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'Defis' %}">Défis</a>
     <a type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'Video' %}">Vidéo</a>
-    <a type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'Voyage' %}">Voyage</a>
+    <a type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'Voyage' %}">Voyage</a> 
+   <button type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;">Large button</button>-->
+
+      <img src="{{ MEDIA_URL }}groupe.JPG" style="width: 60%; padding-top: 2%;">
+
+      <div>
+        <h1>Bienvenue sur notre site</h1>
+        <p style="text-align: justify; margin-left: 25%; width: 50%;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
     
-    <button type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;">Large button</button>
+   
 </div>
-<div class="Cache Interface">
-    <img src="{{ MEDIA_URL }}HydraAnimationLogo.gif" class="img-responsive rounded mx-auto d-block" height="50%">
+<div class="Cache" id="cache">
+    <video class="rounded mx-auto d-block" height="50%" playsinline autoplay muted loop style="position: relative; top: 2%">
+        <source src="{{ MEDIA_URL }}HydraAnimationLogo.webm" type="video/webm">
+    </video>
 </div>
 
  {% endblock %}
