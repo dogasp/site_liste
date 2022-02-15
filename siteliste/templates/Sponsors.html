@@ -83,6 +83,9 @@ p {
   transition-delay: 0s;
 }
 
+br{
+  display: none;
+}
 
 </style>
 
@@ -97,7 +100,7 @@ p {
             <div id="{{ sName }}" class="popup">
                 <a href="#" class="close">&times;</a>
                 <h2>{{ sName }}</h2>
-                <p style="color:black;">{{ sDesc }}</p>
+                <p style="color:black; white-space: pre-line;">{{ sDesc }}</p>
             </div>
             <a href="#" class="close-popup"></a>
         </div>
