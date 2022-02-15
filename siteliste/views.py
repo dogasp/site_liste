@@ -50,20 +50,21 @@ def Defis(request):
     desclist=[]
     datelist=[]
     donneurlist=[]
+    print(len(all_defis.val()))
     for defi in all_defis:
         if defi.val()["count"] != 0:
-            if defi.val()["titre"] != "test":
+            if defi.val()["titre"] != "AFCSGHDFHJW":
                 idlist.append(defi.val()["count"])
                 desclist.append(defi.val()["desc"])
                 titrelist.append(defi.val()["titre"])
                 #donneurlist.append(defi.val()["donneur"])
                 datelist.append(defi.val()["date"])
-   
+    print(len(idlist))
     for i in idlist:
         dictdefi={'id':idlist[c],'titre':titrelist[c],'desc':desclist[c],'date':datelist[c]}
         c+=1
         final.append(dictdefi)
-    
+    print(len(final))
 
 
     #Done:
@@ -78,8 +79,8 @@ def Defis(request):
     donneurdone=[]
     for defi in all_done:
        
-        if defi.val()["titre"] != "test" and defi.val()["donecount"] != 0:
-            iddone.append(defi.val()["donecount"])
+        if defi.val()["titre"] != "AFCSGHDFHJW":
+            iddone.append(defi.val()['donecount'])
             descdone.append(defi.val()["desc"])
             titredone.append(defi.val()["titre"])
                 #donneurlist.append(defi.val()["donneur"])
@@ -87,6 +88,7 @@ def Defis(request):
     
     for i in iddone:
         dictdone={'id':iddone[c],'titre':titredone[c],'desc':descdone[c],'date':datedone[c]}
+        
         c+=1
         donelist.append(dictdone)
     
