@@ -70,7 +70,7 @@ def Defis(request):
     #Done:
     all_done = database.child("done").get()
     
-    c=0
+
     iddone=[]
     donelist=[]
     titredone=[]
@@ -86,10 +86,8 @@ def Defis(request):
                 #donneurlist.append(defi.val()["donneur"])
             datedone.append(defi.val()["datedone"])
     
-    for i in iddone:
+    for c in range(len(iddone)):
         dictdone={'id':iddone[c],'titre':titredone[c],'desc':descdone[c],'date':datedone[c]}
-        
-        c+=1
         donelist.append(dictdone)
     
     if request.method == 'POST':
@@ -101,11 +99,11 @@ def Defis(request):
             if form.is_valid():
                 titre=form.cleaned_data.get('titre')
                 
-                desc=form.cleaned_data.get('desc')
+                donneur = form.cleaned_data.get('donner')
                 
-                donneur = form.cleaned_data.get('donneur')
+                desc=form.cleaned_data.get('desc')
 
-                print(donneur)
+                print(titre, desc, donneur)
 
                 data={"titre":titre, "desc":desc, "date":str(datetime.datetime.now()), "donenu":-1, "lienvid":"lien", "donneur":"donneur","count":database.child("count").get().val()}
                 n='defi{}'.format(database.child("count").get().val())
