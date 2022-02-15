@@ -31,8 +31,7 @@ voyageList = [("wei", "Week-End d'Intégration", "Inconnu", "Ce week-end iconiqu
 
 eventList = [("Allôs", "Lundi 21 février 2022", "De 16h à minuit, nous pouvons vous livrer quasiment tout ce qui vous passe par la tête. Vous avez une petite faim ? Vous prévoyez un apéro ? Vous avez envie de vous tester au yoga ?", "Le détails arrivera sous peu, on va pas tout vous dire maintenant voyons..."),
 ("Petit déjeuner", "Vendredi 25 février 2022", "Vos placards sont vides ? Vous rentrez de soirée et vous avez faim ? Venez manger une bonne viennoiserie, ou une bonne crêpe, en notre compagnie. Bien évidemment on n'a ni oublié le café ni le thé...", ""),
-("Journée de campagne", "Mercredi 9 mars 2022", "Vous l'attendiez tous. La journée la plus attendue de l'année. Au programme ? Dès 6h, un petit déjeuner vous attendra pour vous remettre de la veille. Tout au long de la journée, diverses activités dont un certain mariage... vous feront patienter jusqu'à une na'incroyable soirée !", "C'est la journée la plus importante de l'année, il faut garder un peu de surprise voyons..."),
-("Afterwork", "Lundi 14 mars 2022", "Fatigué d'une journée de cours ? Ras le bol du début de semaine au travail ? Vient te détendre avec nous en buvant une bonne pinte de bière bien raffraîchissante.", "Dans la salle du Au Coin! Dès 18h")]
+("Journée de campagne", "Mercredi 9 mars 2022", "Vous l'attendiez tous. La journée la plus attendue de l'année. Au programme ? Dès 6h, un petit déjeuner vous attendra pour vous remettre de la veille. Tout au long de la journée, diverses activités dont un certain mariage... vous feront patienter jusqu'à une na'incroyable soirée !", "C'est la journée la plus importante de l'année, il faut garder un peu de surprise voyons...")]
 
 def Defis(request):
     
