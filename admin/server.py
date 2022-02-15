@@ -67,7 +67,7 @@ def formatall(all):
 @app.route('/done', methods=['POST'])
 def my_link():
   data = request.form['data']#raw data
-  
+  lien = request.form['lien']
   dataformat = str(data).split(',')#data formaté par catégorie
 
   dataformat = formatall(dataformat)
@@ -83,8 +83,9 @@ def my_link():
   database.child("defis").child(nom).remove()
   
   #add defi à done:
-  done={"titre":dataformat[6], "desc":dataformat[2], "date":dataformat[1], "donenu":len(database.child('done').get().val())-1, "lienvid":"lien", "donneur":"donneur"}
   n=database.child("donecount").get().val()
+  done={"titre":dataformat[6], "desc":dataformat[2], "date":dataformat[1], "donenu":len(database.child('done').get().val())-1, "lienvid":lien, "donneur":"donneur","datedone":str(datetime.datetime.now()), "donecount":n}
+  
   database.child("done").child("done{}".format(n)).set(done)
   
   #incrément donecount
