@@ -48,21 +48,21 @@ def Defis(request):
     desclist=[]
     datelist=[]
     donneurlist=[]
-    print(len(all_defis.val()))
+  
     for defi in all_defis:
         if defi.val()["count"] != 0:
             if defi.val()["titre"] != "AFCSGHDFHJW":
                 idlist.append(defi.val()["count"])
                 desclist.append(defi.val()["desc"])
                 titrelist.append(defi.val()["titre"])
-                #donneurlist.append(defi.val()["donneur"])
+                donneurlist.append(defi.val()["donneur"])
                 datelist.append(defi.val()["date"])
-    print(len(idlist))
+    
     for i in idlist:
-        dictdefi={'id':idlist[c],'titre':titrelist[c],'desc':desclist[c],'date':datelist[c]}
+        dictdefi={'id':idlist[c],'titre':titrelist[c],'desc':desclist[c],'date':datelist[c],'donneur':donneurlist[c]}
         c+=1
         final.append(dictdefi)
-    print(len(final))
+    
 
 
     #Done:
@@ -81,11 +81,11 @@ def Defis(request):
             iddone.append(defi.val()['donecount'])
             descdone.append(defi.val()["desc"])
             titredone.append(defi.val()["titre"])
-                #donneurlist.append(defi.val()["donneur"])
+            donneurlist.append(defi.val()["donneur"])
             datedone.append(defi.val()["datedone"])
     
     for c in range(len(iddone)):
-        dictdone={'id':iddone[c],'titre':titredone[c],'desc':descdone[c],'date':datedone[c]}
+        dictdone={'id':iddone[c],'titre':titredone[c],'desc':descdone[c],'date':datedone[c],'donneur':donneurlist[c]}
         donelist.append(dictdone)
     
     if request.method == 'POST':
@@ -97,13 +97,13 @@ def Defis(request):
             if form.is_valid():
                 titre=form.cleaned_data.get('titre')
                 
-                donneur = form.cleaned_data.get('donner')
+                donneur = form.cleaned_data.get('donneur')
                 
                 desc=form.cleaned_data.get('desc')
-
+                print("testsetest")
                 print(titre, desc, donneur)
 
-                data={"titre":titre, "desc":desc, "date":str(datetime.datetime.now()), "donenu":-1, "lienvid":"lien", "donneur":"donneur","count":database.child("count").get().val()}
+                data={"titre":titre, "desc":desc, "date":str(datetime.datetime.now()), "donenu":-1, "lienvid":"lien", "donneur":donneur,"count":database.child("count").get().val()}
                 n='defi{}'.format(database.child("count").get().val())
                 database.child("defis").child(n).set(data)  
                 
