@@ -135,7 +135,7 @@ def Video(request):
 
     ]
     print
-    return render(request,'video.html',{"afin":afin}, {'menuList': menuList})
+    return render(request,'Video.html',{"afin":afin}, {'menuList': menuList})
 
 def Voyage(request):
     return render(request,'Voyage.html',{'menuList': menuList, 'voyageList':voyageList})
