@@ -1,0 +1,546 @@
+
+ <!--include la  base, bootstrap -->
+ {% extends "base.html" %}
+ {% load static %} 
+ {% block page_content %}
+ {% load static %} 
+
+ <style>
+
+.product {
+    text-align: center;
+    transform: translate(-0%, -0%);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    background: #0e0e0f;
+    overflow: hidden
+}
+
+.product .imgbox {
+    height: 100%;
+    box-sizing: border-box
+}
+
+.product .imgbox img {
+    display: block;
+    width: 80%;
+    margin: 10px auto 0
+}
+
+.specifies {
+    position: absolute;
+    width: 100%;
+    height: 40%;
+    bottom: -100%;
+    background: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: .5s
+}
+
+.product:hover .specifies {
+    bottom: 0
+}
+
+.specifies h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    width: 100%
+}
+
+.specifies h2 span {
+    font-size: 15px;
+    color: #ccc;
+    font-weight: normal
+}
+
+.specifies .price {
+    position: absolute;
+    top: 12px;
+    right: 25px;
+    font-weight: bold;
+    color: #000;
+    font-size: 30px
+}
+
+label {
+    display: block;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 15px
+}
+
+.btn {
+    display: block;
+    padding: 5px;
+    color: #fff;
+    margin: 10px 0 0;
+    width: 100%;
+    font-size: 13px;
+    border-radius: 2px
+}
+
+.NamePole{
+    text-align: center;
+    margin-bottom: 5%;
+    font-size: xxx-large;
+    font-family:'Times New Roman', Times, serif; /* find a better font (cf banner) */
+    font-weight: bold;
+    position: relative;
+    top: 15%;
+}
+
+.pole{
+    position: relative;
+    top: 20%;
+}
+
+.m-5 {
+    width:25%;
+}
+
+.DesPole{
+    position: relative;
+    top: 16%;
+}
+
+.container-fluid{
+    margin-bottom: 10%;
+}
+
+.imgbox{
+    width: 100%;
+    height: 85%;
+}
+
+.imgbox img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+</style>
+
+<div class="container-fluid d-flex align-items-stretch" style="padding:2%;">
+    <div style="width:35%">
+        <h3 class="NamePole">LES PARRAINS</h3>
+        <p class="DesPole">Ils sont à la tête de l'organisation</p>
+        <img class="pole" src="{{ MEDIA_URL }}pole/Bureau.jpg" style="width: 100%;">
+    </div>
+    <div style="width:65%;">
+        <div class="container d-flex flex-wrap justify-content-center" style="width:100%; position: relative; top: 15%">
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/dorian gaspar.JPG">
+                    <div class="specifies" style="background-color: #4A148CDD; color: #fff;">
+                        <!--Faire mise en forme carte info-->
+                        Président
+                        <h5><strong>Dorian Gaspar</strong> Sheesh</h5>
+                            Toujours là quand il y a des conneries à faire
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Benji.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Coco.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Camille_pref.JPG" style="width:100%"> <!--Mauvaise photo-->
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Thomas Dubec.jpg" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Louis.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong><br>Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid d-flex align-items-stretch" style="padding:2%;">
+    <div style="width:35%">
+        <h3 class="NamePole">Pôle soirée</h3>
+        <p class="DesPole">La légende raconte qu'ils ne travaillent que sous 2g d'alcool</p>
+        <img class="pole" src="{{ MEDIA_URL }}pole/Soiree.jpg" style="width: 100%;">
+    </div>
+    <div style="width:65%;">
+        <div class="container d-flex flex-wrap justify-content-center" style="width:100%; position: relative; top: 15%">
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Axel_Guedon.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148CDD; color: #fff;">
+                        Respo Soirée
+                        <h4><strong>Axel Guedon</strong><br>Cergy Ménage</h4>
+                            Cergy ménage ... on va tout nettoyer chez toi !
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Quentin_DeGio.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Pablo.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Kilian.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Dorian_Gaspar.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid d-flex align-items-stretch" style="padding:2%;">
+    <div style="width:35%">
+        <h3 class="NamePole">Pôle Event</h3>
+        <p class="DesPole">Prêt à tout pour vous faire découvrir de nouvelles choses</p>
+        <img class="pole" src="{{ MEDIA_URL }}pole/Event.jpg" style="width: 100%;">
+    </div>
+    <div style="width:65%;">
+        <div class="container d-flex flex-wrap justify-content-center" style="width:100%; position: relative; top: 15%">
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Quentin_Dubois.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148CDD; color: #fff;">
+                        <!--Faire mise en forme carte info-->
+                        Respo Event
+                        <h5><strong>Dorian Gaspar</strong>Quent2</h5>
+                            Pas d'idée
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Lolo.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Pierre.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Gwendal.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Adam.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Mathis_Rellier.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong><br>Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid d-flex align-items-stretch" style="padding:2%;">
+    <div style="width:35%">
+        <h3 class="NamePole">Pôle Voyage</h3>
+        <p class="DesPole">Voyage Voyage</p>
+        <img class="pole" src="{{ MEDIA_URL }}pole/Voyage.JPG" style="width: 100%;">
+    </div>
+    <div style="width:65%;">
+        <div class="container d-flex flex-wrap justify-content-center" style="width:100%; position: relative; top: 15%">
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Renaud.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148CDD; color: #fff;">
+                        <!--Faire mise en forme carte info-->
+                        Respo Event
+                        <h5><strong>Dorian Gaspar</strong>Quent2</h5>
+                            Pas d'idée
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Louise.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Alex.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Thomas.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid d-flex align-items-stretch" style="padding:2%;">
+    <div style="width:35%">
+        <h3 class="NamePole">Pôle Com</h3>
+        <p class="DesPole">Responsable de la bonne comprehension du nom Hydra</p>
+        <img class="pole" src="{{ MEDIA_URL }}pole/Com.JPG" style="width: 100%;">
+    </div>
+    <div style="width:65%;">
+        <div class="container d-flex flex-wrap justify-content-center" style="width:100%; position: relative; top: 15%">
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Arthur.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148CDD; color: #fff;">
+                        <!--Faire mise en forme carte info-->
+                        Respo Event
+                        <h5><strong>Dorian Gaspar</strong>Quent2</h5>
+                            Pas d'idée
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Amal.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Joud Cazeaux.jpg" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Hedi Ben Amor.jpg" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Dorian_Gaspar.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid d-flex align-items-stretch" style="padding:2%;">
+    <div style="width:35%">
+        <h3 class="NamePole">Pôle Entreprise - marchant - contrat</h3>
+        <p class="DesPole">À la recherche des meilleurs partenariats</p>
+        <img class="pole" src="{{ MEDIA_URL }}pole/Entreprise.JPG" style="width: 100%;">
+    </div>
+    <div style="width:65%;">
+        <div class="container d-flex flex-wrap justify-content-center" style="width:100%; position: relative; top: 15%">
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Mathis.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148CDD; color: #fff;">
+                        <!--Faire mise en forme carte info-->
+                        Respo Event
+                        <h5><strong>Dorian Gaspar</strong>Quent2</h5>
+                            Pas d'idée
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Morgane.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/ArnaudPref.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Idha.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>         
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid d-flex align-items-stretch" style="padding:2%;">
+    <div style="width:35%">
+        <h3 class="NamePole">Pôle Mystère 😏</h3>
+        <p class="DesPole">Prêt à tout pour vous divertir</p>
+        <img class="pole" src="{{ MEDIA_URL }}pole/Mystere.jpg" style="width: 100%;">
+    </div>
+    <div style="width:65%;">
+        <div class="container d-flex flex-wrap justify-content-center" style="width:100%; position: relative; top: 40%">
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Alexandre_Faber.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148CDD; color: #fff;">
+                        <!--Faire mise en forme carte info-->
+                        Respo Event
+                        <h5><strong>Dorian Gaspar</strong>Quent2</h5>
+                            Pas d'idée
+                    </div>
+                </div>
+            </div>
+            <div class="m-4" style="width: 25%;">
+                <div class="product imgbox">
+                    <img src="{{ MEDIA_URL }}membres/Antoine.JPG" style="width:100%">
+                    <div class="specifies" style="background-color: #4A148C; color: #fff;">
+                        Président
+                        <h4><strong>Dorian Gaspar</strong> Sheesh</h4>
+                        Description
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="padding-bottom: 10%"></div> <!--Pour compléter la page-->
+{% endblock %}
+
+
+
+
+ 

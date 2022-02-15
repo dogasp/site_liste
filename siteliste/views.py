@@ -18,10 +18,23 @@ config={
   "databaseURL" : "https://site-liste-hydra-e6a25-default-rtdb.europe-west1.firebasedatabase.app/"
 }
 
+menuList = [("/", "Accueil"), ("/Membres/", "Membres"), ("/Defis/", "Défis"), ("/Video/", "Vidéo"), ("/Voyage/", "Voyages"), ("/Sponsors/", "Sponsors"), ("/Event/", "Événement")]
 
-    
+sponsorList = [("Lyf Pay", "sponso/lyf.png", "Lyf pay est trop bien"), ("Ornikar", "sponso/ornikar.jpg", "Ornikar est trop cool"), ("Vapiano", "sponso/vapiano.png", "Resto italiano"), 
+("StaffMe", "sponso/staffme.png", "surprise pour la journée de campagne"), ("Onyxia", "sponso/Onyxia.png", "sushi!"), ("Zozan", "sponso/Zozan.png", "La boisson est offerte"), 
+("Axel.Le", "sponso/axel le.png", "hmmm essuie fraise"), ("Credit Mutuel", "sponso/cm.png", "Les potos qui gardent notre moula"), ("Lyf Pay", "sponso/lyf.png", "Lyf pay est trop bien"), 
+("Lyf Pay", "sponso/lyf.png", "Lyf pay est trop bien")]
 
-def defis(request):
+voyageList = [("wei", "Week-End d'Intégration", "Inconnu", "Ce week-end iconique permet de faire connaissance et d'intégrer les personnes venant de prépa, mais aussi pour finir sur une bonne note ton été 2K22, au programme : Soirée, piscine, Jeux, bonne ambiance… Tous les éléments sont réunis pour te faire kiffer."), 
+("ski", "Semaine de Ski", "Serre chevalier Valée", "En plein milieu des Hautes-Alpes, Nous nous engageons à t'offrir le meilleur voyage de ski qui existe. 250 km de pistes avec une vue sur le massif des Écrins, une semaine avec une prestation All Inclusive, t'as juste à faire ton sac et n'oublie pas ton bonnet !!"), 
+("europe", "Voyage en Europe", "Naples", "Hydra vous donne rdv en Italie pour faire trembler le volcan caché sous cette charmante ville, Soirée privée, Boîtes de nuit, restaurants italien, Apéro, soleil, Activités. Prépare toi car tu vas peut-être oublier de dormir.")]
+
+eventList = [("Allôs", "Lundi 21 février 2022", "De 16h à minuit, nous pouvons vous livrer quasiment tout ce qui vous passe par la tête. Vous avez une petite faim ? Vous prévoyez un apéro ? Vous avez envie de vous tester au yoga ?", "Le détails arrivera sous peu, on va pas tout vous dire maintenant voyons..."),
+("Petit déjeuner", "Vendredi 25 février 2022", "Vos placards sont vides ? Vous rentrez de soirée et vous avez faim ? Venez manger une bonne viennoiserie, ou une bonne crêpe, en notre compagnie. Bien évidemment on n'a ni oublié le café ni le thé...", ""),
+("Journée de campagne", "Mercredi 9 mars 2022", "Vous l'attendiez tous. La journée la plus attendue de l'année. Au programme ? Dès 6h, un petit déjeuner vous attendra pour vous remettre de la veille. Tout au long de la journée, diverses activités dont un certain mariage... vous feront patienter jusqu'à une na'incroyable soirée !", "C'est la journée la plus importante de l'année, il faut garder un peu de surprise voyons..."),
+("Afterwork", "Lundi 14 mars 2022", "Fatigué d'une journée de cours ? Ras le bol du début de semaine au travail ? Vient te détendre avec nous en buvant une bonne pinte de bière bien raffraîchissante.", "Dans la salle du Au Coin! Dès 18h")]
+
+def Defis(request):
     
     firebase=pyrebase.initialize_app(config)
     authe = firebase.auth()
@@ -77,8 +90,6 @@ def defis(request):
         c+=1
         donelist.append(dictdone)
     
-    
-    
     if request.method == 'POST':
         if request.POST.get("submit"):
             
@@ -91,7 +102,7 @@ def defis(request):
                 desc=form.cleaned_data.get('desc')
                 
                 donneur = form.cleaned_data.get('donneur')
-                
+
                 print(donneur)
 
                 data={"titre":titre, "desc":desc, "date":str(datetime.datetime.now()), "donenu":-1, "lienvid":"lien", "donneur":"donneur","count":database.child("count").get().val()}
@@ -103,17 +114,19 @@ def defis(request):
         return HttpResponseRedirect("/defis")
 
    
-    return render(request, 'defis.html', {'form': form ,'final':final,'donelist':donelist})
+    return render(request, 'defis.html', {'form': form ,'final':final,'donelist':donelist, 'menuList': menuList})
+
 def Acceuil(request):
-    
     return render(request,'Acceuil.html',{})
 
+def Accueil(request):
+    return render(request,'Accueil.html',{'menuList': menuList})
 
-def membres(request):
-    return render(request,'membres.html',{})
+def Membres(request):
+    return render(request,'Membres.html',{'menuList': menuList})
 
-def sponsors(request):
-    return render(request,'sponsors.html',{})
+def Sponsors(request):
+    return render(request,'Sponsors.html',{'menuList': menuList, 'sponsorList': sponsorList})
 
 def video(request):
     afin=[
@@ -122,9 +135,11 @@ def video(request):
 
     ]
     print
-    return render(request,'video.html',{"afin":afin})
+    return render(request,'video.html',{"afin":afin}, {'menuList': menuList})
 
-def voyage(request):
-    return render(request,'voyage.html',{})
+def Voyage(request):
+    return render(request,'Voyage.html',{'menuList': menuList, 'voyageList':voyageList})
 
+def Event(request):
+    return render(request,'Event.html',{'menuList': menuList, 'eventList':eventList})
 

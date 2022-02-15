@@ -1,0 +1,70 @@
+<!--include la  base, bootstrap -->
+ {% extends "base.html" %}
+
+ {% block page_content %}
+<style>
+
+@keyframes animation {
+  0%{
+    background-color: #1d102add;
+    opacity: 1;
+  }
+  94%{
+    background-color: #1d102add;
+    opacity: 1;
+
+  }
+  100%{
+    background-color: #230c5a00;
+    opacity: 0;
+  }
+}
+
+.Cache{
+    animation-duration: 6s;
+    animation-name: animation;
+    background-color: #5d3882;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+<script>
+  function suppr(){
+    console.log("test");
+    var elt = document.getElementById("cache");
+    elt.remove();
+  }
+  document.addEventListener("DOMContentLoaded", setTimeout(suppr, 6000));
+</script>
+
+<div style="text-align: center; position: relative;">
+  
+    <!-- <a type="button" class="btn btn-primary btn-lg " style="background-color: #230c5a;" href="{% url 'Membres' %}">Membres</a>
+    <a type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'Defis' %}">Défis</a>
+    <a type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'Video' %}">Vidéo</a>
+    <a type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'Voyage' %}">Voyage</a> 
+   <button type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;">Large button</button>-->
+
+      <img src="{{ MEDIA_URL }}groupe.JPG" style="width: 60%; padding-top: 2%;">
+
+      <div>
+        <h1>Bienvenue sur notre site</h1>
+        <p style="text-align: justify; margin-left: 25%; width: 50%;">HYDRA, les mafieux de Cergy débarquent à CyTech pour établir la vérité et donner justice à la joie et bonne humeur qui doivent régner au sein de votre vie étudiante. Notre projet est d’élargir notre réseau et offrir les meilleures soirées et activités à tous les membres de Cy-Tech. Notre but est d’intégrer les valeurs et les coutumes eistiennes, ainsi que de les améliorer pour une vie étudiante meilleure. Notre école a grandi, son esprit aussi, et nous sommes la version 2.0.</p>
+      </div>
+    
+   
+</div>
+<div class="Cache" id="cache">
+    <video class="rounded mx-auto d-block" height="50%" playsinline autoplay muted loop style="position: relative; top: 2%">
+        <source src="{{ MEDIA_URL }}HydraAnimationLogo.webm" type="video/webm">
+    </video>
+</div>
+
+ {% endblock %}
+
+ 
