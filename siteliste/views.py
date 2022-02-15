@@ -114,7 +114,7 @@ def Defis(request):
         return HttpResponseRedirect("/defis")
 
    
-    return render(request, 'defis.html', {'form': form ,'final':final,'donelist':donelist, 'menuList': menuList})
+    return render(request, 'Defis.html', {'form': form ,'final':final,'donelist':donelist, 'menuList': menuList})
 
 def Acceuil(request):
     return render(request,'Acceuil.html',{})
@@ -128,7 +128,7 @@ def Membres(request):
 def Sponsors(request):
     return render(request,'Sponsors.html',{'menuList': menuList, 'sponsorList': sponsorList})
 
-def video(request):
+def Video(request):
     afin=[
         { "id":1, "name": "Python", "author":"idk", "copies": 1},
 { "id":2, "name": "Java", "author":"idk2", "copies": 3}

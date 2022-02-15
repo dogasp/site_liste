@@ -5,7 +5,9 @@
  {% block page_content %}
  
 <style>
-
+table{
+  color: white;
+}
 </style>
 
 <br>
@@ -13,36 +15,71 @@
 
 {% csrf_token %}
 <form method="post">
-    {% csrf_token %}
-    <label for="titre">Titre </label>
-    <input id="titre" type="text" name="titre">
-    
-    <label for="desc">Desc </label>
-    <input id="desc" type="text" name="desc">
-    <input type="submit" value="OK" name="submit">
+  {% csrf_token %}
+  <label for="titre">Titre </label>
+  <input id="titre" type="text" name="titre">
+  <input id="titre" type="text" name="titre" required>
+
+  <label for="desc">Desc </label>
+  <input id="desc" type="text" name="desc">
+  <input id="desc" type="text" name="desc" required>
+
+  <input type="submit" value="OK" name="submit">
 </form>
 
 <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Titre</th>
-        <th scope="col">Description</th>
-        <th scope="col">Date</th>
-      </tr>
-    </thead>
-    {% for defi in defis %}
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>{{ defi }}</td>
-        <td></td>
-        <td></td>
-      </tr>
-      {% endfor %}
-    </tbody>
-    
-  </table>
+TABLE A FAIRE
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  {% for defi in defis %}
+  <tbody>
+    {%for f in final%}
+    <tr>
+      <th scope="row">1</th>
+      <td>{{ defi }}</td>
+      <td></td>
+      <td></td>
+
+      <th scope="row">{{ f.id }}</th>
+      <td>{{ f.titre }}</td>
+      <td>{{f.desc}}</td>
+      <td>{{f.desc}}</td>
+    </tr>
+    {% endfor %}
+    {% endfor %}}
+
+  </tbody>
+
+</table>
+
+<table class="table">
+  TABLE A FAIT
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Titre</th>
+      <th scope="col">Description</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for f in donelist%}
+    <tr>
+
+      <th scope="row">{{ f.id }}</th>
+      <td>{{ f.titre }}</td>
+      <td>{{f.desc}}</td>
+      <td>{{f.desc}}</td>
+    </tr>
+    {% endfor %}}
+
+  </tbody>
+
+</table>
       
 
 
