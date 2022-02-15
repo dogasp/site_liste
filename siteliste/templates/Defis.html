@@ -9,30 +9,92 @@
 
 
 <style>
-table{
+.table_title, table, form{
   color: white;
 }
 .my-custom-scrollbar {
   position: relative;
-  height: 500px;
+  height: 60%;
   overflow: auto;
-  }
-  .table-wrapper-scroll-y {
+}
+.table-wrapper-scroll-y {
   display: block;
-  }
+  padding: 2%;
+}
+
+form{
+  padding-top: 2%;
+  padding-left: 5%;
+}
+
+.popup {
+    position: fixed;
+    padding: 10px;
+    width: 50%;
+    height: 50%;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: rgba(255,255,255,.9);
+    visibility: hidden;
+    opacity: 0;
+    /* "delay" the visibility transition */
+    -webkit-transition: opacity .5s, visibility 0s linear .5s;
+    transition: opacity .5s, visibility 0s linear .5s;
+    z-index: 1;
+}
+.popup:target {
+    visibility: visible;
+    opacity: 1;
+    /* cancel visibility transition delay */
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+.popup-close {
+    position: absolute;
+    padding: 10px;
+    max-width: 500px;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: rgba(255,255,255,.9);
+}
+.popup .close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    padding: 5px;
+    color: #111;
+    transition: color .3s;
+    font-size: 2em;
+    line-height: .6em;
+    font-weight: bold;
+}
+.close-popup {
+    background: rgba(0,0,0,.6);
+    cursor: default;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+    /* "delay" the visibility transition */
+    -webkit-transition: opacity .5s, visibility 0s linear .5s;
+    transition: opacity .5s, visibility 0s linear .5s;
+}
+.popup:target + .close-popup{  
+    opacity: 1;
+    visibility: visible;
+    /* cancel visibility transition delay */
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
 
 </style>
-<script>
-let table = new DataTable('#defis', {
-    
-});
-</script>
-
- 
-
-<br>
-<br>
-
 
 <form method="post">
   {% csrf_token %}
@@ -51,14 +113,47 @@ let table = new DataTable('#defis', {
   
   <input type="submit" value="OK" name="submit">
 </form>
+
 <div class="table-wrapper-scroll-y my-custom-scrollbar ">
+  <h3 class="table_title">Défis réalisés</h3>
+  <table class="table ">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Titre</th>
+        <th scope="col">Description</th>
+        <th scope="col">De la part de</th>
+        <th scope="col">Voir vidéo</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for f in donelist %}
+      <tr>
 
+        <th scope="row">{{ f.id }}</th>
+        <td>{{ f.titre }}</td>
+        <td>{{ f.desc }}</td>
+        <td>{{ f.donneur }}</td>
+        <td><a href="#{{ f.id }}" class="btn btn-secondary element">Vidéo</a></td> <!--f.lien-->
+      </tr>
+      <div id="{{ f.id }}" class="popup">
+        <iframe width="100%" height="100%" src="{{ f.lien }}" title="Vidéo de défi" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <a href="#" class="close-popup"></a>
+      {% endfor %}
 
-  <table class="table table-striped table-bordered" id="defis" style="width:100%">
-    TABLE A FAIRE
+    </tbody>
+
+  </table>
+</div>
+
+<div class="table-wrapper-scroll-y my-custom-scrollbar ">
+  <h3 class="table_title">Défis à faire</h3>
+
+  <table class="table table-striped" id="defis" style="width:100%">
       <thead>
         <tr >
-          <th scope="col">#</th>
+          <!--<th scope="col">#</th>-->
           <th scope="col">titre</th>
           <th scope="col">Description</th>
           <th scope="col">De la part de </th>
@@ -67,7 +162,7 @@ let table = new DataTable('#defis', {
       <tbody>
         {%for f in final%}
         <tr>
-          <th scope="row">{{ f.id }}</th>
+          <!--<th scope="row">{{ f.id }}</th>-->
           <td>{{ f.titre }}</td>
           <td>{{f.desc}}</td>
           <td>{{f.donneur}}</td>
@@ -80,34 +175,7 @@ let table = new DataTable('#defis', {
     </table>
 
 </div>
-<div class="table-wrapper-scroll-y my-custom-scrollbar ">
-  <table class="table ">
-    TABLE FAIT
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Titre</th>
-        <th scope="col">Description</th>
-        <th scope="col">De la part de</th>
-        <th scope="col">Voir vidéo</th>
-      </tr>
-    </thead>
-    <tbody>
-      {%for f in donelist%}
-      <tr>
 
-        <th scope="row">{{ f.id }}</th>
-        <td>{{ f.titre }}</td>
-        <td>{{f.desc}}</td>
-        <td>{{f.donneur}}</td>
-        <td><button class="btn btn-secondary">Vidéo</button></td>
-      </tr>
-      {% endfor %}}
-
-    </tbody>
-
-  </table>
-</div>
 
 
 
