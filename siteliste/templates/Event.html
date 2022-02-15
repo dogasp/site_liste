@@ -12,6 +12,9 @@ h1 {
     white-space: nowrap;
     color: #563675;
 }
+p {
+  color: black;
+}
 
 .element:hover {
     -webkit-filter: grayscale(1) invert(1);
@@ -89,7 +92,7 @@ h1 {
     {% for eName, eDate, eDate, eSmall in eventList %}
         <div style="height:20%; margin-right: 10%; padding-bottom: 1%; width: 300px; height: 300px; margin-top: 2%;">
 
-            <a href="#{{ eName }}" style="color:white; width: 300px; height: 300px" ><img class="element" src="{{ MEDIA_URL }}event/{{ eName }}.png" style="border-radius: 30px; width:100%;" ></a>
+            <a href="#{{ eName }}" style="color:black; width: 300px; height: 300px" ><img class="element" src="{{ MEDIA_URL }}event/{{ eName }}.png" style="border-radius: 30px; width:100%;" ></a>
 
             <div id="{{ eName }}" class="popup">
                 <a href="#" class="close">&times;</a>
