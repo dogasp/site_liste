@@ -111,7 +111,7 @@ def Defis(request):
                 
                 vaniquertamere = int(database.child("count").get().val())
                 database.child("count").set(vaniquertamere+1)
-        return HttpResponseRedirect("/defis")
+        return HttpResponseRedirect("/Defis")
 
    
     return render(request, 'Defis.html', {'form': form ,'final':final,'donelist':donelist, 'menuList': menuList})
