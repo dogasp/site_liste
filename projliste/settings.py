@@ -22,7 +22,8 @@ SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-7uuvx&maelzd49-85)5!=pgj4rrmsp1!_-80a^(x9q7++&@^+8'
-
+RECAPTCHA_PRIVATE_KEY="6LekZYIeAAAAAKa_uWXAVDKARmY2TwlWdIhnr-NR"
+RECAPTCHA_PUBLIC_KEY="6LekZYIeAAAAAMPJBb8XQXCrQPSYkM3qZpUy3tdd"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -38,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'siteliste'
+    'siteliste',
+    'captcha'
 ]
 
 MIDDLEWARE = [
@@ -50,7 +52,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
 ROOT_URLCONF = 'projliste.urls'
 
 TEMPLATES = [
