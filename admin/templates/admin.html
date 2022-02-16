@@ -46,7 +46,7 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Titre</th>
-        
+        <th scope="col">DELETE</th>
         
       </tr>
     </thead>
@@ -55,7 +55,13 @@
       <tr>
         <th scope="row">1</th>
         <td>{{ b.val() }}</td>
-        
+        <td>
+          <form action="/delete" method="post">
+            <input name="donecount" type="hidden" value="{{ b.val().donecount}}">
+            <input type="submit" value="Supprimer" >
+          </form>
+       
+      </td>
       </tr>
       {% endfor %}
     </tbody>

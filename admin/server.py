@@ -64,6 +64,20 @@ def formatall(all):
   
   return all
 
+@app.route('/delete', methods=['POST'])
+def delete():
+  count=request.form['donecount']
+  
+  firebase=pyrebase.initialize_app(config)
+  authe = firebase.auth()
+  database=firebase.database()
+
+  database.child("done").child("done{}".format(count)).remove()
+  c=database.child("donecount").get().val() - 1
+  database.child("donecount").set(c)
+
+  return redirect('/')
+
 @app.route('/done', methods=['POST'])
 def my_link():
   data = request.form['data']#raw data
