@@ -85,13 +85,26 @@ p {
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
 }
+
+
+.titre {
+    text-align: center;
+    padding: 2%;
+}
+
+@supports (-moz-appearance:none) {
+    .titre {
+        padding-top: 2%;
+        padding-bottom: 2%;
+    }
+}
       
 </style>
 
-<h1 style="color: white; text-align: center; padding: 2%;">Voici nos évenements à venir</h1>
+<div class="titre"><h1 style="color: white;">Voici nos événements à venir</h1></div>
 <div class="container-fluid d-flex flex-wrap justify-content-center" style="width: 100%; min-height: 80%; padding-left: 10%; padding-right: 10%; padding-bottom: 5%;">
     {% for eName, eDate, eDate, eSmall in eventList %}
-        <div style="height:20%; margin-right: 10%; padding-bottom: 1%; width: 300px; height: 300px; margin-top: 2%;">
+        <div style="height:20%; margin-right: 10%; padding-bottom: 1%; width: 250px; height: 250px; margin-top: 2%;">
 
             <a href="#{{ eName }}" style="color:black; width: 300px; height: 300px" ><img class="element" src="{{ MEDIA_URL }}event/{{ eName }}.png" style="border-radius: 30px; width:100%;" ></a>
 

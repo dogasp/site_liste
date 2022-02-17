@@ -29,9 +29,10 @@
 footer{
     background-color: #563675;
     height:11%;
+    display: flex;
     width: 100%;
-    position: relative;
-    top: 9%;
+    position: fixed;
+    bottom: 0%;
 }
 
 h1{
@@ -106,7 +107,7 @@ h1{
     </div>
 </div>
 
-<div style = "background-color:#230c5a; position: relative; top: 9%; min-height: 80%;">
+<div style = "background-color:#230c5a; position: relative; top: 9%; height: 90%; min-height: 80%;">
     {% block page_content %}
     {% endblock %}
 </div>
