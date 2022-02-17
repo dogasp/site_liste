@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 import numpy
 import pyrebase
-from .forms import NameForm
+from projliste.forms import NameForm
 import datetime
 from numpy import array
 

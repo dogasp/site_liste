@@ -18,9 +18,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from projliste import views
 from django.views.static import serve
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',include('siteliste.urls'))
+    path('', views.Accueil, name='Accueil'),
+    path('Defis/', views.Defis, name='Defis'),
+    path('Membres/', views.Membres, name='Membres'),
+    path('Sponsors/', views.Sponsors, name='Sponsors'),
+    path('Video/', views.Video, name='Video'),
+    path('Voyage/', views.Voyage, name='Voyage'),
+    path('Event/', views.Event, name='Event'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

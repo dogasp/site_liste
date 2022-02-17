@@ -15,6 +15,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 import os
+import netifaces
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 
 # Quick-start development settings - unsuitable for production
@@ -27,7 +28,16 @@ RECAPTCHA_PUBLIC_KEY="6LekZYIeAAAAAMPJBb8XQXCrQPSYkM3qZpUy3tdd"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+def ip_addresses():
+    ip_list = []
+    for interface in netifaces.interfaces():
+        addrs = netifaces.ifaddresses(interface)
+        for x in (netifaces.AF_INET, netifaces.AF_INET6):
+            if x in addrs:
+                ip_list.append(addrs[x][0]['addr'])
+    return ip_list
+
+ALLOWED_HOSTS = ip_addresses()
 
 
 # Application definition
@@ -39,7 +49,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'siteliste',
     'captcha'
 ]
 
@@ -57,7 +66,7 @@ ROOT_URLCONF = 'projliste.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['siteliste/templates', 'projetliste/templates'],
+        'DIRS': ['projliste/templates', 'projliste/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
