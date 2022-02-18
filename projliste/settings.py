@@ -37,7 +37,7 @@ def ip_addresses():
                 ip_list.append(addrs[x][0]['addr'])
     return ip_list
 
-ALLOWED_HOSTS = ip_addresses()
+ALLOWED_HOSTS = ["site.liste-hydra.fr", "localhost"]
 
 
 # Application definition
