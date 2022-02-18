@@ -6,9 +6,9 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
-
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <style>
-.navbar a, .navbar img{
+.navbar a, .navbar img, #myTopnav{
     background-color: #563675;
     /*eqx #5F4B8B
     autre choix: #633ccd */
@@ -33,6 +33,31 @@ footer{
     width: 100%;
     position: fixed;
     bottom: 0%;
+}
+
+@media screen and (max-width: 900px){
+    footer{
+        display: block;
+        position:relative;
+        bottom:0;
+    }
+}
+
+@media screen and (max-width: 600px){
+    footer{
+        flex-direction: column;
+        height: 22%;
+
+    }
+    .footerblock{
+        height: 30% !important;
+    }
+    .lastfooter{
+        padding-bottom: 10px;
+    }
+    #contentblock{
+        padding-bottom: 22%;
+    }
 }
 
 h1{
@@ -89,10 +114,74 @@ h1{
     background: #453f4b;
 }
 
+.navbar .icon{
+    display: none;
+}
+
+.icon i{
+    background-color: #563675;
+}
+.icon .fa:hover{
+    background-color: #563675;
+}
+
+#img-mobile{
+    display: none;
+}
+
+@media only screen and (max-width: 900px) {
+  #navelt {display: none !important;}
+  #img-mobile{
+    display: block;
+  }
+  .navbar a.icon {
+    float: right;
+    display: block;
+    height: 9vh;
+    position: relative; top:0%;
+  }
+  #navelt img{
+    display: block !important;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .navbar.responsive {position: sticky; top:0}
+  .responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .responsive{
+    background-color: #56367599;
+  }
+  .responsive #navelt {
+    float: none;
+    display: block !important;
+    text-align: left;
+  }
+  .responsive #img-mobile{
+      display: none !important;
+  }
+}
+
 </style>
 
-<div class="navbar fixed-top rounded" style="height:9%; display: block;">
-    <div class="container-fluid rounded d-flex align-items-stretch" style="height:100%">
+<script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      console.log(x.className);
+      if (x.className === "navbar fixed-top") {
+        x.className += " responsive";
+      } else {
+        x.className = "navbar fixed-top";
+      }
+    }
+</script>
+
+<div class="navbar fixed-top" style="height:9%; display: block;" id="myTopnav">
+    <div class="container-fluid d-flex align-items-stretch" style="height:100%" id="navelt">
         <img src="{{ MEDIA_URL }}nav.png" height="100%">
 
         {% for navUrl, navName in menuList %}
@@ -105,9 +194,13 @@ h1{
         
         {% endfor %}
     </div>
+    <img src="{{ MEDIA_URL }}nav.png" height="100%" style="position: absolute; left: 40%;" id="img-mobile">
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
 </div>
 
-<div style = "background-color:#230c5a; position: relative; top: 9%;  min-height: 80%;">
+<div id="contentblock" style = "background-color:#230c5a; position: relative; top: 9%;  min-height: 80%;">
     {% block page_content %}
     {% endblock %}
 </div>
@@ -125,11 +218,11 @@ h1{
         
     </div>
 
-    <div class="flex-fill text-center" style="height: 95%; padding-top: 5px;">
+    <div class="flex-fill text-center footerblock" style="height: 95%; padding-top: 5px;">
         <img src="{{ MEDIA_URL }}nav.png" height="100%" class="rounded">
     </div>
 
-    <div class="flex-fill text-center d-flex align-items-stretch">
+    <div class="flex-fill text-center d-flex align-items-stretch lastfooter">
         <div class="flex-fill"><a href="mailto:listeHydra@gmail.com" class="fa fa-at flex-fill"> </a></div>
         <div class="flex-fill"><a href="https://t.me/listebdehydra" class="fab fa-telegram flex-fill"> </a></div>
         <div class="flex-fill"><a href="http://snapchat.com/add/liste_hydra" class="fab fa-snapchat flex-fill"> </a></div>
