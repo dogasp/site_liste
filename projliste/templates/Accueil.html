@@ -35,6 +35,14 @@
   .Cache {
     display: none;
   }
+  .groupimg{
+    width: 100% !important;
+    padding-top: 0% !important;
+  }
+  .textintro{
+    width: 90% !important;
+    margin-left: 5% !important;
+  }
 }
 
 @supports (-moz-appearance:none) {
@@ -72,11 +80,11 @@
     <a type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;" href="{% url 'Voyage' %}">Voyage</a> 
    <button type="button" class="btn btn-primary btn-lg"  style="background-color: #230c5a;">Large button</button>-->
 
-      <img src="{{ MEDIA_URL }}groupe.JPG" style="width: 60%; padding-top: 2%;">
+      <img src="{{ MEDIA_URL }}groupe.JPG" style="width: 60%; padding-top: 2%;" class="groupimg">
 
       <div>
         <h1>Bienvenue sur notre site</h1>
-        <p style="text-align: justify; margin-left: 25%; width: 50%; height: 30%">HYDRA, les mafieux de Cergy débarquent à CyTech pour établir la vérité et donner justice à la joie et bonne humeur qui doivent régner au sein de votre vie étudiante. Notre projet est d’élargir notre réseau et offrir les meilleures soirées et activités à tous les membres de Cy-Tech. Notre but est d’intégrer les valeurs et les coutumes eistiennes, ainsi que de les améliorer pour une vie étudiante meilleure. Notre école a grandi, son esprit aussi, et nous sommes la version 2.0.</p>
+        <p style="text-align: justify; margin-left: 25%; width: 50%; height: 30%" class="textintro">HYDRA, les mafieux de Cergy débarquent à CyTech pour établir la vérité et donner justice à la joie et bonne humeur qui doivent régner au sein de votre vie étudiante. Notre projet est d’élargir notre réseau et offrir les meilleures soirées et activités à tous les membres de Cy-Tech. Notre but est d’intégrer les valeurs et les coutumes eistiennes, ainsi que de les améliorer pour une vie étudiante meilleure. Notre école a grandi, son esprit aussi, et nous sommes la version 2.0.</p>
       </div>
     
    

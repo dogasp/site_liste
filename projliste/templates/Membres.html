@@ -103,6 +103,7 @@ label {
 .DesPole{
     position: relative;
     top: 16%;
+    font-size: larger;
 }
 
 .container-fluid{
@@ -121,15 +122,31 @@ label {
     object-fit: cover;
 }
 
+@media screen and (max-width: 900px) {
+  .Polecontainer{
+      flex-direction: column !important;
+  }
+  .polehead{
+      width: 80% !important;
+      position: relative;
+      left: 10%;
+  }
+  .polemem{
+      width: 80% !important;
+      position: relative;
+      left:10%;
+  }
+}
+
 </style>
 
-<div class="container-fluid d-flex align-items-stretch" style="padding:2%;">
-    <div style="width:35%">
+<div class="container-fluid d-flex align-items-stretch Polecontainer" style="padding:2%;">
+    <div style="width:35%" class="polehead">
         <h3 class="NamePole">LES PARRAINS</h3>
         <p class="DesPole">Ils sont à la tête de l'organisation</p>
         <img class="pole" src="{{ MEDIA_URL }}pole/Bureau.jpg" style="width: 100%;">
     </div>
-    <div style="width:65%;">
+    <div style="width:65%;" class="polemem">
         <div class="container d-flex flex-wrap justify-content-center" style="width:100%; position: relative; top: 15%">
             <div class="m-4" style="width: 25%;">
                 <div class="product imgbox">
@@ -164,7 +181,7 @@ label {
             </div>
             <div class="m-4" style="width: 25%;">
                 <div class="product imgbox">
-                    <img src="{{ MEDIA_URL }}membres/Camille_pref.JPG" style="width:100%"> <!--Mauvaise photo-->
+                    <img src="{{ MEDIA_URL }}membres/Camille_pref.jpg" style="width:100%"> <!--Mauvaise photo-->
                     <div class="specifies" style="background-color: #4A148CDE; color: #fff;">
                         Trésorière
                         <h4><strong>Camille Lamory</strong> La B.A.C.</h4>
@@ -198,13 +215,13 @@ label {
 </div>
 
 
-<div class="container-fluid d-flex align-items-stretch" style="padding:2%;">
-    <div style="width:35%">
+<div class="container-fluid d-flex align-items-stretch Polecontainer" style="padding:2%;">
+    <div style="width:35%" class="polehead">
         <h3 class="NamePole">Pôle Apérol</h3>
         <p class="DesPole">La légende raconte qu'ils ne travaillent que sous 3g d'alcool</p>
         <img class="pole" src="{{ MEDIA_URL }}pole/Soiree.jpg" style="width: 100%;">
     </div>
-    <div style="width:65%;">
+    <div style="width:65%;" class="polemem">
         <div class="container d-flex flex-wrap justify-content-center" style="width:100%; position: relative; top: 15%">
             <div class="m-4" style="width: 25%;">
                 <div class="product imgbox">
@@ -261,13 +278,13 @@ label {
     </div>
 </div>
 
-<div class="container-fluid d-flex align-items-stretch" style="padding:2%;">
-    <div style="width:35%">
+<div class="container-fluid d-flex align-items-stretch Polecontainer" style="padding:2%;">
+    <div style="width:35%" class="polehead">
         <h3 class="NamePole">Pôle Pizza</h3>
         <p class="DesPole">Prêt à tout pour vous faire découvrir de nouvelles choses</p>
         <img class="pole" src="{{ MEDIA_URL }}pole/Event.jpg" style="width: 100%;">
     </div>
-    <div style="width:65%;">
+    <div style="width:65%;" class="polemem">
         <div class="container d-flex flex-wrap justify-content-center" style="width:100%; position: relative; top: 15%">
             <div class="m-4" style="width: 25%;">
                 <div class="product imgbox">
@@ -335,13 +352,13 @@ label {
     </div>
 </div>
 
-<div class="container-fluid d-flex align-items-stretch" style="padding:2%;">
-    <div style="width:35%">
+<div class="container-fluid d-flex align-items-stretch Polecontainer" style="padding:2%;">
+    <div style="width:35%" class="polehead">
         <h3 class="NamePole">Pôle Vroum Vroum</h3>
         <p class="DesPole">6h de route pour des pâtes aux pâtes ça fait beaucoup la non ?</p>
         <img class="pole" src="{{ MEDIA_URL }}pole/Voyage.JPG" style="width: 100%;">
     </div>
-    <div style="width:65%;">
+    <div style="width:65%;" class="polemem">
         <div class="container d-flex flex-wrap justify-content-center" style="width:100%; position: relative; top: 15%">
             <div class="m-4" style="width: 25%;">
                 <div class="product imgbox">
@@ -388,13 +405,13 @@ label {
     </div>
 </div>
 
-<div class="container-fluid d-flex align-items-stretch" style="padding:2%;">
-    <div style="width:35%">
+<div class="container-fluid d-flex align-items-stretch Polecontainer" style="padding:2%;">
+    <div style="width:35%" class="polehead">
         <h3 class="NamePole">Pôle posta</h3>
         <p class="DesPole">Responsable de la bonne comprehension de nomtre nom</p>
         <img class="pole" src="{{ MEDIA_URL }}pole/Com.JPG" style="width: 100%;">
     </div>
-    <div style="width:65%;">
+    <div style="width:65%;" class="polemem">
         <div class="container d-flex flex-wrap justify-content-center" style="width:100%; position: relative; top: 15%">
             <div class="m-4" style="width: 25%;">
                 <div class="product imgbox">
@@ -451,13 +468,13 @@ label {
     </div>
 </div>
 
-<div class="container-fluid d-flex align-items-stretch" style="padding:2%;">
-    <div style="width:35%">
+<div class="container-fluid d-flex align-items-stretch Polecontainer" style="padding:2%;">
+    <div style="width:35%" class="polehead">
         <h3 class="NamePole">Pôle racket</h3>
         <p class="DesPole">Ces mafieux sont pret à tout pour un contrat</p>
         <img class="pole" src="{{ MEDIA_URL }}pole/Entreprise.JPG" style="width: 100%;">
     </div>
-    <div style="width:65%;">
+    <div style="width:65%;" class="polemem">
         <div class="container d-flex flex-wrap justify-content-center" style="width:100%; position: relative; top: 15%">
             <div class="m-4" style="width: 25%;">
                 <div class="product imgbox">
@@ -505,13 +522,13 @@ label {
 </div>
 
 
-<div class="container-fluid d-flex align-items-stretch" style="padding:2%;">
-    <div style="width:35%">
+<div class="container-fluid d-flex align-items-stretch Polecontainer" style="padding:2%;">
+    <div style="width:35%" class="polehead">
         <h3 class="NamePole">Pôle Mystèrio 😏</h3>
         <p class="DesPole">Prêt à tout pour vous divertir</p>
         <img class="pole" src="{{ MEDIA_URL }}pole/Mystere.jpg" style="width: 100%;">
     </div>
-    <div style="width:65%;">
+    <div style="width:65%;" class="polemem">
         <div class="container d-flex flex-wrap justify-content-center" style="width:100%; position: relative; top: 40%">
             <div class="m-4" style="width: 25%;">
                 <div class="product imgbox">
