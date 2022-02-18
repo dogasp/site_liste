@@ -1,18 +1,35 @@
- {% extends "base.html" %}
+{% extends "base.html" %}
 
- {% block page_content %}
- 
-<div style="height: 80%;">
+{% block page_content %}
+<style>
+.titre {
+    text-align: center; 
+    color: white; 
+    margin-bottom: 1%; 
+    padding-top: 1%;
+}
 
-    <h1 style="text-align: center; color: white; margin-bottom: 1%; padding-top: 1%;">Notre vidéo de campagne</h1>
+@supports (-moz-appearance:none) {
+    .titre {
+        text-align: center; 
+        color: white; 
+        margin-bottom: 1%; 
+        padding-top: 4%;
+    }
+}
+
+</style>
+<div class="videoContainer" style="height: 80%;">
+
+    <h1 class="titre">Notre vidéo de campagne</h1>
     <div style="text-align: center;">
-        <iframe width="65%" height="85%" src="https://www.youtube.com/embed/wtfC4E1_zUM" title="Video de campagne" frameborder="0" allowfullscreen></iframe>
+        <iframe class"videoFrame" width="65%" height="85%" src="https://www.youtube.com/embed/wtfC4E1_zUM" title="Video de campagne" frameborder="0" allowfullscreen></iframe>
     </div>
 
 </div>
 
 
 
- {% endblock %}
+{% endblock %}
 
  
