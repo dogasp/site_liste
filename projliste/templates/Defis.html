@@ -100,40 +100,48 @@ form{
       padding-bottom: 2%; 
   }
 }
+
+form label, form input{
+  margin-left: 10px;
+}
   
 
 </style>
 
 <form method="post">
   {% csrf_token %}
-  <label for="titre">Titre </label>
+  <h3>Poster un défi</h3>
+  <label for="titre">Titre du défi</label><br>
   
-  <input id="titre" type="text" name="titre" required>
+  <input id="titre" type="text" name="titre" required><br>
 
   
-  <label for="desc">Desc </label>
+  <label for="desc">Description :</label><br>
   
-  <input id="desc" type="text" name="desc" required>
+  <input id="desc" type="text" name="desc" required><br>
 
 
-  <label for="donneur">donneur </label>
-  <input id="donneur" type="text" name="donneur" required>
+  <label for="donneur">De la part de : </label><br>
+  <input id="donneur" type="text" name="donneur" required><br><br>
   {{form.captcha}}
-  <input type="submit" value="OK" name="submit">
+  <input type="submit" value="Envoyer !" name="submit">
 </form>
 
+
+<h3 class="table_title">Défis réalisés</h3>
+<table class="table ">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Titre</th>
+      <th scope="col">Description</th>
+      <th scope="col">De la part de</th>
+      <th scope="col">Voir vidéo</th>
+    </tr>
+  </thead>
+</table>
 <div class="table-wrapper-scroll-y my-custom-scrollbar ">
-  <h3 class="table_title">Défis réalisés</h3>
-  <table class="table ">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Titre</th>
-        <th scope="col">Description</th>
-        <th scope="col">De la part de</th>
-        <th scope="col">Voir vidéo</th>
-      </tr>
-    </thead>
+  <table class="table">
     <tbody>
       {% for f in donelist %}
       <tr>
@@ -154,19 +162,21 @@ form{
 
   </table>
 </div>
+<h3 class="table_title">Défis à faire</h3>
+
+<table class="table table-striped" id="defis" style="width:100%; text-align: center;">
+    <thead>
+      <tr >
+        <!--<th scope="col">#</th>-->
+        <th scope="col">Titre</th>
+        <th scope="col">Description</th>
+        <th scope="col">De la part de </th>
+      </tr>
+    </thead>
+</table>
 
 <div class="table-wrapper-scroll-y my-custom-scrollbar ">
-  <h3 class="table_title">Défis à faire</h3>
-
-  <table class="table table-striped" id="defis" style="width:100%">
-      <thead>
-        <tr >
-          <!--<th scope="col">#</th>-->
-          <th scope="col">titre</th>
-          <th scope="col">Description</th>
-          <th scope="col">De la part de </th>
-        </tr>
-      </thead>
+  <table class="table table-striped" style="width:100%; margin-bottom: 11%;">
       <tbody>
         {%for f in final%}
         <tr>
