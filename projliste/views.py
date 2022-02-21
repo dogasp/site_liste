@@ -97,11 +97,11 @@ def Defis(request):
             form = NameForm(request.POST)
             
             if form.is_valid():
-                titre=form.cleaned_data.get('titre')
+                titre=form.cleaned_data.get('titre').replace(","," ")
                 
-                donneur = form.cleaned_data.get('donneur')
+                donneur = form.cleaned_data.get('donneur').replace(","," ")
                 
-                desc=form.cleaned_data.get('desc')
+                desc=form.cleaned_data.get('desc').replace(","," ")
                 print("testsetest")
                 print(titre, desc, donneur)
 
