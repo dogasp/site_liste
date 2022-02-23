@@ -104,27 +104,151 @@ form{
 form label, form input{
   margin-left: 10px;
 }
-  
+
+h3{
+  text-align: center;
+  color: white;
+}
+
+.containerf {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.group{
+  position: relative;
+  margin-bottom: 45px;
+}
+
+input{
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+}
+form div div div input, textarea{
+  background-color: inherit;
+  border:none;
+  border-bottom:1px solid #757575;
+  color:white;
+}
+input:focus     { outline:none; }
+
+label          {
+  color:rgb(197, 197, 197); 
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label, textarea:focus ~ label, textarea:valid ~ label    {
+  top:-20px;
+  font-size:14px;
+  color:#5264AE;
+}
+
+.bar  { position:relative; display:block; width:300px; }
+.bar:before, .bar:after   {
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:0px; 
+  position:absolute;
+  background:#5264AE; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+.highlight {
+  position:absolute;
+  height:60%; 
+  width:100px; 
+  top:25%; 
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+input:focus ~ .highlight, textarea:focus ~ .highlight{
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+  from { background:#5264AE; }
+  to  { width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+  from { background:#5264AE; }
+  to  { width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+  from { background:#5264AE; }
+  to  { width:0; background:transparent; }
+}
 
 </style>
 
+<h3 style="padding-top: 10px">Poster un défi</h3>
+
 <form method="post">
   {% csrf_token %}
-  <h3>Poster un défi</h3>
-  <label for="titre">Titre du défi</label><br>
-  
-  <input id="titre" type="text" name="titre" required><br>
+  <div class="container-fluid d-flex containerf">
+    <div class="globalgroup">
+      <div class="group">      
+        <input id="titre" type="text" name="titre" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label for="titre">Titre</label>
+      </div>
 
-  
-  <label for="desc">Description :</label><br>
-  
-  <input id="desc" type="text" name="desc" required><br>
+      <div class="group">      
+        <input id="donneur" type="text" name="donneur" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label for="donneur">De la part de</label>
+      </div>
 
+    </div>
 
-  <label for="donneur">De la part de : </label><br>
-  <input id="donneur" type="text" name="donneur" required><br><br>
-  {{form.captcha}}
-  <input type="submit" value="Envoyer defi" name="submit">
+    <div class="globalgroup">
+      <div class="group">      
+        <textarea id="desc" name="desc" required></textarea>
+        <span class="highlight"></span>
+        <label for="desc">Description</label>
+      </div>
+
+      {{form.captcha}}
+
+    </div>
+
+  </div>
+  
+  
+  <input style="position: relative; left:45%; margin-bottom: 15px;" class="btn" type="submit" value="Envoyer defi" name="submit">
 </form>
 
 
