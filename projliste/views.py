@@ -76,6 +76,7 @@ def Defis(request):
     listliens=[]
     datedone=[]
     donneurdone=[]
+    donneurlist=[]
     for defi in all_done:
        
         if defi.val()["titre"] != "AFCSGHDFHJW":

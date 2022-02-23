@@ -124,19 +124,19 @@ form label, form input{
   <label for="donneur">De la part de : </label><br>
   <input id="donneur" type="text" name="donneur" required><br><br>
   {{form.captcha}}
-  <input type="submit" value="Envoyer !" name="submit">
+  <input type="submit" value="Envoyer defi" name="submit">
 </form>
 
 
-<h3 class="table_title">Défis réalisés</h3>
-<table class="table ">
+<h3 class="table_title" style="padding-left:2%">Défis réalisés</h3>
+<table class="table " style="padding-left:2%">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Titre</th>
       <th scope="col">Description</th>
-      <th scope="col">De la part de</th>
-      <th scope="col">Voir vidéo</th>
+      <th scope="col" style="text-align: right">De la part de</th>
+      <th scope="col" style="text-align: center">Voir vidéo</th>
     </tr>
   </thead>
 </table>
@@ -162,9 +162,9 @@ form label, form input{
 
   </table>
 </div>
-<h3 class="table_title">Défis à faire</h3>
+<h3 class="table_title" style="padding-left:2%">Défis à faire</h3>
 
-<table class="table table-striped" id="defis" style="width:100%; text-align: center;">
+<table class="table table-striped" id="defis" style="width:100%; text-align: center; padding-left:2%">
     <thead>
       <tr >
         <!--<th scope="col">#</th>-->
@@ -178,12 +178,12 @@ form label, form input{
 <div class="table-wrapper-scroll-y my-custom-scrollbar ">
   <table class="table table-striped" style="width:100%; margin-bottom: 11%;">
       <tbody>
-        {%for f in final%}
+        {%for d in final%}
         <tr>
           <!--<th scope="row">{{ f.id }}</th>-->
-          <td>{{ f.titre }}</td>
-          <td>{{f.desc}}</td>
-          <td>{{f.donneur}}</td>
+          <td>{{ d.titre }}</td>
+          <td>{{d.desc}}</td>
+          <td>{{d.donneur}}</td>
         </tr>
         {% endfor %}
         
