@@ -34,6 +34,36 @@ eventList = [("Allôs", "Lundi 21 février 2022", "De 16h à minuit, nous pouvon
 
 eventList = eventList[1:]
 
+def getlowest(donelist):
+    
+    lowestval=donelist[0].get("id")
+    lowestid=0
+    i=0
+    for e  in donelist:
+        
+        if e['id'] < lowestval:
+            lowestval = e.get("id")
+            lowestid = i
+        i+=1
+    return lowestid 
+            
+
+def order(donelist,orderedlist):
+  
+    if len(donelist) == 1 :
+        
+        orderedlist.append(donelist[0])
+        return orderedlist
+    else:
+        
+        orderedlist.append(donelist[getlowest(donelist)])   
+        donelist.pop(getlowest(donelist))
+        
+        return order(donelist, orderedlist)
+
+
+def order(donelist,orderedlist):
+
 def Defis(request):
     
     firebase=pyrebase.initialize_app(config)
@@ -92,6 +122,12 @@ def Defis(request):
     for c in range(len(iddone)):
         dictdone={'id':iddone[c],'titre':titredone[c],'desc':descdone[c],'date':datedone[c],'donneur':donneurlist[c],'lien':listliens[c]}
         donelist.append(dictdone)
+        
+    ordereddone = []
+    
+    ordereddone = (order(donelist,ordereddone))
+    
+
     
     if request.method == 'POST':
         if request.POST.get("submit"):
@@ -117,7 +153,7 @@ def Defis(request):
         return HttpResponseRedirect("/Defis")
 
    
-    return render(request, 'Defis.html', {'form': form ,'final':final,'donelist':donelist, 'menuList': menuList})
+    return render(request, 'Defis.html', {'form': form ,'final':final,'donelist':ordereddone, 'menuList': menuList})
 
 def Acceuil(request):
     return render(request,'Acceuil.html',{})
